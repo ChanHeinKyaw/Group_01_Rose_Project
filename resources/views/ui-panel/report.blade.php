@@ -12,9 +12,10 @@
       </div>
 
       <div class="inner-form">
-        <form action="" method="post">
-          <input type="text" name="" id="" placeholder="တိုင်ကြားမည့်အကြောင်းအရာ">
-          <input type="text" name="" id="" placeholder="ဖြစ်ပွားသည့်နေရာ">
+        <form action="{{ route('report') }}" method="post">
+          @csrf
+          <input type="text" name="case" id="" placeholder="တိုင်ကြားမည့်အကြောင်းအရာ">
+          <input type="text" name="address" id="" placeholder="ဖြစ်ပွားသည့်နေရာ">
 
           <input type="submit" value="တိုင်ကြားမည်">
         </form>

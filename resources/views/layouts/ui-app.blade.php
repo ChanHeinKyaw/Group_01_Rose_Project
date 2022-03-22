@@ -21,10 +21,13 @@
     🌹
   </button>
   <div class="form-popup" id="myForm">
-    <form action="" class="form-container">
+    <form  action="{{ route("post#report") }}" method="post" class="form-container">
+      @csrf
       <p class="pop-up-txt"> ပို့မှာ သေချာလား? </p>
       <div class="pop-btn">
+
         <button type="submit" class="btn send">ပို့မည်။ </button>
+
         <button type="button" class="btn cancel" id="closeForm">မပို့ဘူး။</button>
       </div>
     </form>
