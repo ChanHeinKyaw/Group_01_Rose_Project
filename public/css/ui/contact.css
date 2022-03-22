@@ -1,0 +1,229 @@
+  /* Contact us page */
+  a {
+    text-decoration: none;
+  }
+
+  .title-desc {
+    margin: 0 0 50px 0;
+    padding: 10px;
+    background: #d4a9d766;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .contact-ttl {
+    margin-bottom: 20px;
+    font-family: 'Spring-Rev';
+    font-size: 40px;
+    text-align: center;
+    font-style: italic;
+
+  }
+
+  .contact-info {
+    float: left;
+    width: 50%;
+  }
+
+  .info-item {
+    height: 410px;
+    margin: 0px 30px;
+    border: 2px solid #9b6da3ba;
+    box-shadow: 0.5rem 0.5rem #9b6da3ba, -0.5rem -0.5rem #ccc;
+  }
+
+  .info-item li {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .contact-icon::before {
+    display: block;
+    margin: 10px 0px;
+    color: #7f5fb7;
+    font-family: "Font Awesome 5 Free";
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .phone::before {
+    content: "\f098";
+  }
+
+  .email::before {
+    content: "\f199";
+  }
+
+  .home::before {
+    content: "\f124";
+  }
+
+  .contact-form {
+    float: right;
+    width: 50%;
+  }
+
+  .contact-form input,
+  textarea {
+    width: 94.5%;
+    margin: 10px 0px;
+    padding: 1em;
+    border: 0;
+    background: #f8f8f8;
+    text-align: left;
+    outline: none;
+  }
+
+  .contact-form textarea {
+    height: 126px;
+  }
+
+  .btn {
+    width: 150px;
+    padding: 8px 15px;
+    border: none;
+    background-color: #7f5fb7;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    border: 2px solid #7f5fb7;
+    background-color: #ffffff;
+    color: #7f5fb7;
+  }
+
+  .map-add {
+    margin: 50px 0px;
+  }
+
+  .map-link {
+    width: 100%;
+    height: 500px;
+  }
+
+
+
+  /** Contact Us**/
+
+
+  /* Ipad */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .title-desc {
+      margin: 0 0 4.883vw 0;
+      font-size: 2.734vw;
+    }
+
+    .contact-ttl {
+      margin-bottom: 1.953vw;
+      font-size: 3.906vw;
+    }
+
+    .info-item {
+      height: 40.039vw;
+      margin: 0 2.930vw;
+    }
+
+    .info-item li {
+      padding: 0.977vw;
+    }
+
+    .contact-icon::before {
+      margin: 0.977vw 0;
+      font-size: 2.930vw;
+    }
+
+    .contact-form input,
+    textarea {
+      margin: 0.977vw 0;
+    }
+
+    .contact-form textarea {
+      height: 12.305vw;
+    }
+
+    .btn {
+      width: 14.648vw;
+      padding: 0.781vw 1.465vw;
+      font-size: 1.563vw;
+    }
+
+    .map-add {
+      margin: 4.883vw 0;
+    }
+
+    .map-link {
+      height: 48.828vw;
+    }
+
+  }
+
+  /*  SP  */
+  @media screen and (max-width: 767.9px) {
+
+    /** Contact Us**/
+    .title-desc {
+      margin: 0 0 6.510vw 0;
+      font-size: 3.906vw;
+    }
+
+    .contact-ttl {
+      margin-bottom: 2.604vw;
+      font-size: 7.208vw;
+    }
+
+    .contact-info {
+      width: 100%;
+    }
+
+    .info-item {
+      height: 49.479vw;
+      margin: 0 3.906vw;
+    }
+
+    .info-item li {
+      padding: 1.302vw;
+    }
+
+    .contact-icon::before {
+      margin: 1.302vw 0;
+      font-size: 3.906vw;
+    }
+
+    .contact-form {
+      width: 100%;
+      margin-top: 6.510vw;
+      padding-top: 3.906vw;
+      border-top: 1px solid gray;
+    }
+
+    .contact-form input,
+    textarea {
+      width: 100%;
+      margin: 1.302vw 0;
+    }
+
+    .contact-form textarea {
+      height: 16.406vw;
+    }
+
+    .btn {
+      padding: 1.042vw 1.953vw;
+      font-size: 2.083vw;
+    }
+
+    .map-add {
+      margin: 6.510vw 0;
+    }
+
+    .map-link {
+      height: 52.083vw;
+    }
+
+  }

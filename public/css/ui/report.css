@@ -1,0 +1,61 @@
+.report-hdr {
+    text-align: center;
+}
+
+.report-hdr .report-h2 {
+    margin-top: 50px;
+    font-family: Spring-Rev;
+    font-size: 40px;
+    padding: 10px 150px;
+    background: #A683E3;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.inner-form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    background: white;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"] {
+    text-align: center;
+    height: 60px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background: #A683E3;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 4px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #A683E3;
+}
+
+::placeholder {
+    color: grey;
+    opacity: 1;
+}
+
+.report-blank-space {
+    padding-bottom: 70px;
+}

@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Spring-Rev;
+  src: url('../../font/MasterpieceSpringRev.ttf');
+}
+
+h1 {
+  font-family: Spring-Rev;
+  font-size: 60px;
+  font-weight: normal;
+}
+
+.inner-container {
+  width: 1110px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  height: 0px;
+  visibility: hidden;
+  font-size: 0px;
+  content: "";
+}
+
+.top-sec {
+  width: 100%;
+  position: fixed;
+  background: #A683E3;
+  border-bottom: 5px solid #3D3E3C;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul.menu li a {
+  color: #E4E9FD;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu,
+.submenu {
+  list-style-type: none;
+}
+
+.item {
+  /* padding: 10px; */
+  padding: 8px;
+}
+
+.item:not(.button) a:hover,
+.dropdown:hover .dropbtn,
+.item a:hover::after {
+  color: #FFD700;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu li a {
+  display: block;
+  padding: 15px 5px;
+}
+
+.menu li.subitem a {
+  padding: 15px;
+}
+
+.active .item {
+  display: block;
+}
+
+.submenu-active .submenu {
+  display: block;
+}
+
+.navbar-active {
+  background-color: #000;
+  border-radius: 20px;
+}
+
+.item {
+  order: 1;
+  position: relative;
+  display: block;
+  width: auto;
+}
+
+#content {
+  background-color: #E4E9FD;
+  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  height: 100vh;
+  overflow: scroll;
+}
+
+
+#content .main {
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+#content .sign {
+  padding-top: 40px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+}
+
+#content input {
+  width: 90%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 25px;
+  text-align: left;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#content select {
+  width: 90%;
+  color: #757575;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 25px;
+  text-align: left;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#content input:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+}
+
+#content .submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+#content .forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #E1BEE7;
+  padding: 8px 0px;
+  text-align: center;
+}
+
+#content .hdr .logo {
+  text-decoration: none;
+  color: #000000;
+  text-shadow: none;
+}
+
+#content a {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #8C55AA;
+  text-decoration: none
+}
+
+#content .alert {
+  color: white;
+  background-color: green;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#content .blank-space {
+  padding-top: 170px;
+}

@@ -1,0 +1,35 @@
+.img-profile-div {
+    text-align: center;
+}
+
+.img-profile {
+    width: 200px;
+    height:200px;
+    margin-bottom: 10px;
+}
+
+.select-option-gender {
+    text-align: center;
+    height: 60px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.select-option-gender:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #A683E3;
+}
+
+#edit-btn,
+.label-btn {
+    font-size: 16px;
+    background: #A683E3;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,219 @@
+.sec-aboutus {
+  padding: 50px;
+  text-align: center;
+  color: white;
+  /* margin: 100px 0 50px 0; */
+}
+
+.about-ttl {
+  margin: 0 0 30px 0;
+  font-size: 40px;
+  font-weight: 300;
+  color: rgb(126, 105, 119);
+  text-transform: uppercase;
+  /* position: relative; */
+  display: block;
+  padding-bottom: 10px;
+}
+
+/* .about-ttl::after {
+    content: "";
+    position: absolute;
+    width: 142px;
+    height: 2px;
+    background: #A683E3;
+    left: 50%;
+    margin-left: -73px;
+    bottom: 0;
+    
+}  */
+.about-txt {
+  margin: 0 0 30px 0;
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(126, 105, 119);
+  /* position: relative; */
+  padding-bottom: 20px;
+}
+
+.about-name {
+  font-family: 'Spring-Rev';
+  font-size: 30px;
+  color: #684468;
+  margin-top: 5px;
+}
+
+.about-juni {
+  font-family: 'Spring-Rev';
+  font-size: 25px;
+  color: #684468;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-two {
+  display: flex;
+  justify-content: center;
+}
+
+.col-one {
+  width: 30%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+img {
+  width: 250px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background: #f7c9c930;
+}
+
+.container {
+  padding: 0 16px;
+  line-height: 2;
+}
+
+.about-icon::before {
+  color: #120922;
+  font-family: "Font Awesome 5 Free";
+  font-size: 30px;
+  display: inherit;
+  margin-right: 20px;
+}
+
+.phone::before {
+  content: "\f098";
+}
+
+.email::before {
+  content: "\f199";
+}
+
+
+/* Ipad */
+@media screen and (min-width: 768px) and (max-width:1024px) {
+  .sec-aboutus {
+    padding: 50px;
+    /* margin: 100px 0 50px 0; */
+  }
+
+  .about-ttl {
+    margin: 0 0 30px 0;
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+
+  .about-ttl::after {
+    width: 142px;
+    height: 2px;
+    margin-left: -73px;
+
+  }
+
+  .about-txt {
+    margin: 0 0 30px 0;
+    font-size: 22px;
+    padding-bottom: 20px;
+  }
+
+  .about-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .about-juni {
+    font-size: 18px;
+  }
+
+  .col-one {
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  img {
+    width: 250px;
+  }
+
+  .card {
+    margin: 8px;
+  }
+
+  .container {
+    padding: 0;
+    line-height: 1.5;
+  }
+
+  .about-btn {
+    padding: 8px;
+  }
+
+  .about-icon::before {
+    font-size: 30px;
+    white-space: 10px;
+    margin-right: 20px;
+  }
+}
+
+/* Smart Phone */
+@media screen and (max-width:767.9px) {
+  .sec-aboutus {
+    padding: 100px;
+    /* margin: 50px 0; */
+  }
+
+  .about-ttl {
+    margin: 0 0 30px 0;
+    font-size: 35px;
+    /* padding-bottom: 10px; */
+  }
+
+  .about-ttl::after {
+    width: 142px;
+  }
+
+  .about-txt {
+    margin: 0 0 30px 0;
+    font-size: 22px;
+    padding-bottom: 20px;
+  }
+
+  .about-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .about-juni {
+    font-size: 18px;
+  }
+
+  .col-one {
+    width: 45%;
+    margin-bottom: 16px;
+    padding: 0 2px;
+  }
+
+  img {
+    width: 180px;
+  }
+
+  .card {
+    margin: 4px;
+  }
+
+  .container {
+    padding: 0 16px;
+    line-height: 2;
+  }
+
+  .about-icon::before {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+}
