@@ -6,32 +6,8 @@
     <h5 class="mt-2">Posts</h5><a class="anchor" name="posts"></a>
     <div class="row grid-responsive">
       <div class="column pt-card">
-        <a class="button cr-post" id="myBtn">Create Posts</a>
+        <a class="button cr-post" id="createNewProduct" href="{{ route('post.create') }}">Create Posts</a>
         <div class="main-pt clearfix">
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Create Posts</h2>
-              </div>
-              <div class="modal-body">
-                <form>
-
-                  <label for="title">Name</label>
-                  <input type="text" placeholder="Title" id="title">
-
-                  <label for="description">Description</label>
-                  <textarea placeholder="Your Text" id="description"></textarea>
-
-                  <input class="button-primary" type="submit" value="Send">
-                  <input class="button-secondary" type="submit" value="Clear">
-
-                </form>
-              </div>
-            </div>
-          </div>
           <table>
             <thead>
               <tr>
@@ -67,4 +43,5 @@
     </div>
     <p class="credit">SCM OJT Batch 2 group I<a href="#">Group I</a></p>
   </section>
+
 @endsection
