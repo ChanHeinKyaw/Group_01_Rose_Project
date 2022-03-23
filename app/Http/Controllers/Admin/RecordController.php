@@ -38,7 +38,7 @@ class RecordController extends Controller
     /**
      * To save record data and mail to defender roses
      * 
-     * @return View previous page
+     * @return View success alert page
      */
     public function createReport()
     {
@@ -46,7 +46,7 @@ class RecordController extends Controller
         $this->recordService->saveRecord();
         $this->recordService->mailRecord();
 
-        return back();
+        return view('ui-panel.success-alert');
     }
 
     /**

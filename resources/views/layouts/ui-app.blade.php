@@ -26,7 +26,7 @@
       <p class="pop-up-txt"> ပို့မှာ သေချာလား? </p>
       <div class="pop-btn">
 
-        <button type="submit" class="btn send">ပို့မည်။ </button>
+        <button type="submit" class="btn send" onclick="this.form.submit();this.disabled = true;">ပို့မည်။ </button>
 
         <button type="button" class="btn cancel" id="closeForm">မပို့ဘူး။</button>
       </div>
