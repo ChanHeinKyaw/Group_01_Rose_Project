@@ -42,6 +42,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/post', [PostController::class, 'index']);
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
-    Route::get('/contact-us', [ContactUsController::class, 'index']);
+    Route::get('/contact', [ContactUsController::class, 'index']);
     Route::get('/profile', [AdminProfileController::class, 'index']);
+
+    Route::get('/contact', 'Contact\ContactController@contactList');
+    Route::delete('/contact/{id}', 'Contact\ContactController@deleteContactById')->name('contact.delete');
+    Route::get('/contact/search', 'Contact\ContactController@searchContact')->name('contact.search');
+    Route::get('/user', 'User\UserController@userList');
+    Route::post('/user', 'User\UserController@userList');
+    Route::post('/user/{id}', 'User\UserController@updateUserRole')->name('user.change-role');
+    Route::get('/search', 'User\UserController@searchUser')->name('user.search');
 });
+
+Route::get('/contact-form', [ContactController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
+    
+
+
+

@@ -74,6 +74,7 @@
     background: #f8f8f8;
     text-align: left;
     outline: none;
+    font-size:16px;
   }
 
   .contact-form textarea {
@@ -107,6 +108,13 @@
     height: 500px;
   }
 
+  .text-danger{
+    color: hsl(0, 88%, 55%);
+  }
+  .text-success {
+    color: #7f5fb7;
+    text-align: center;
+  }
 
 
   /** Contact Us**/

@@ -52,7 +52,7 @@
         <li><a href="{{ url('/admin/record') }}"><em class="fa fa fa-database"></em> Records</a></li>
         <li><a href="{{ url('/admin/user') }}"><em class="fa fa fa-user"></em> User</a></li>
         <li><a href="{{ url('/admin/post') }}"><em class="fa fa fa-group"></em> Post</a></li>
-        <li><a href="{{ url('/admin/contact-us') }}"><em class="fa fa fa-address-book"></em> Contact Us</a></li>
+        <li><a href="{{ url('/admin/contact') }}"><em class="fa fa fa-address-book"></em> Contact Us</a></li>
         <li>
           <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                document.getElementById('logout-form').submit();">
