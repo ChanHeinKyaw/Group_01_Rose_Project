@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <title>@yield('title')</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700"
     rel="stylesheet">
-
-  <!-- CSS Reset -->
+     <!-- CSS Reset -->
   <link rel="stylesheet" href="{{ asset('css/admin/reset.css') }}">
 
   <!-- Template Styles -->
@@ -19,6 +19,7 @@
 
   <!-- Main Styles -->
   <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
+ 
 </head>
 
 <body>
@@ -26,20 +27,18 @@
     <div class="row">
       <div class="column column-30 col-site-title"><a href="{{ url('/') }}" class="site-title float-left">
           <h1>နှင်းဆီ🌹</h1>
-        </a></div>
-      <div class="column column-40 col-search"><a href="#" class="search-btn fa fa-search"></a>
-        <input type="text" name="" value="" placeholder="Search..." />
-      </div>
-      <div class="column column-30">
-        <div class="user-section"><a href="{{ url('/admin/profile') }}">
-            <img src="http://via.placeholder.com/50x50" alt="profile" class="circle float-left profile-photo" width="50"
-              height="auto">
-            <div class="username">
-              <h4>Aye Myat Myat Soe</h4>
-              <p>Administrator</p>
-            </div>
-          </a></div>
-      </div>
+        </a>
+        <div class="column">
+            <div class="user-section"><a href="{{ url('/admin/profile') }}">
+                <img src="http://via.placeholder.com/50x50" alt="profile" class="circle float-left profile-photo" width="50"
+                  height="auto">
+                <div class="username">
+                  <h4>Aye Myat Myat Soe</h4>
+                  <p>Administrator</p>
+                </div>
+              </a></div>
+          </div>
+    </div>
     </div>
   </div>
   <div class="row">
@@ -69,6 +68,8 @@
 
     @yield('content')
   </div>
+    <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
   <script src="{{ asset('js/chart.min.js') }}"></script>
   <script src="{{ asset('js/chart-data.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
