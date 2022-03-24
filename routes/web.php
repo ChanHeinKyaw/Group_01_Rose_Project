@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     //    return view("admin-panel.post");
     //});
     Route::resource('/post', 'Admin\PostController');
+    //Route::get('/post', 'Admin\PostController@search')->name('search');
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
     Route::get('/contact-us', [ContactUsController::class, 'index']);

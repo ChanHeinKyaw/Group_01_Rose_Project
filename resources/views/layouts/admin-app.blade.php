@@ -19,7 +19,7 @@
 
   <!-- Main Styles -->
   <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
 </head>
 
 <body>
@@ -69,6 +69,7 @@
     @yield('content')
   </div>
     <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
   <script src="{{ asset('js/chart.min.js') }}"></script>
   <script src="{{ asset('js/chart-data.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>

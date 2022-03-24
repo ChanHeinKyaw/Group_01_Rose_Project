@@ -46,11 +46,32 @@ input[type=file] {
   background-color: #008000;
   margin-right: 15px;
   color: #000;
-}
 
+  float:left;
+}
+.pull-right {
+  float: right;
+  width: 100px;
+  margin-bottom: 20px;
+}
+.pull-right a {
+    background-color: #EBC048;
+    border: 1px solid #EBC048;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 10px 15px;
+    text-align: right;
+  }
+.delete-form {
+    float:left;
+}
+.post-form {
+    width: 48%;
+    float: right;
+    margin-top: 20px;
+}
 .delete {
   background-color: #ff0000;
-  padding: 12px 30px;
   border: 0.1rem solid #EBC048;
   border-radius: 499rem;
   font-size: 1.15rem;
