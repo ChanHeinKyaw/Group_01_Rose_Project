@@ -39,7 +39,7 @@ input[type=file] {
 }
 
 .edit {
-  padding: 12px 30px;
+  padding: 9px 30px;
   border: 0.1rem solid #EBC048;
   border-radius: 499rem;
   font-size: 1.15rem;
@@ -48,6 +48,9 @@ input[type=file] {
   color: #000;
 
   float:left;
+}
+.swal-button {
+  padding:0 12px;
 }
 .pull-right {
   float: right;
