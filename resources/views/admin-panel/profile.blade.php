@@ -26,6 +26,7 @@
             <label for="profile" class="img-btn" >ပုံအသစ်တင်မည်</label>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
           <div class="right-blk">
 
@@ -59,6 +60,8 @@
 
         </form>
 =======
+=======
+>>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
           <div class="right-blk main">
             <form>
               <label for="fname">Name</label><br>

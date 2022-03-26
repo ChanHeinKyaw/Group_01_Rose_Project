@@ -7,9 +7,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
 
   <!-- CSS Reset -->
+=======
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700"
+    rel="stylesheet">
+     <!-- CSS Reset -->
+>>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
 =======
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700"
     rel="stylesheet">
@@ -34,6 +40,7 @@
       <div class="column column-30 col-site-title"><a href="{{ url('/') }}" class="site-title float-left">
           <h1>နှင်းဆီ🌹</h1>
 <<<<<<< HEAD
+<<<<<<< HEAD
         </a></div>
       <div class="column column-40 col-search"><a href="#" class="search-btn fa fa-search"></a>
         <input type="text" name="" value="" placeholder="Search..." />
@@ -52,6 +59,8 @@
           </a></div>
       </div>
 =======
+=======
+>>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
         </a>
         <div class="column">
             <div class="user-section"><a href="{{ url('/admin/profile') }}">
@@ -64,6 +73,9 @@
               </a></div>
           </div>
     </div>
+<<<<<<< HEAD
+>>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
+=======
 >>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
     </div>
   </div>
