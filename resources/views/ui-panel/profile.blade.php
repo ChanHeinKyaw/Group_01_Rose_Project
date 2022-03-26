@@ -2,46 +2,52 @@
 @section('title', 'နှင်းဆီ🌹')
 @section('content')
 
-  <div class="blank-space"></div>
+<div class="blank-space"></div>
 
-  <div class="blog-sec">
-    <div class="article-div inner-container">
-      <div class="report-hdr">
-        <h2 class="report-h2">
-          ကိုယ်ရေးအကျဉ်း
-        </h2>
-      </div>
-
-      <div class="inner-form">
-        <div class="img-profile-div">
-          <img src="img/big-img.png" alt="Profile Photo" class="img-profile">
-        </div>
-
-        <form action="" method="post">
-          <input type="file" id="files" style="display: none;" class="disable" disabled />
-          <label for="files" class="label-btn">ပုံအသစ်တင်မည်</label>
-          <input type="text" name="" id="" placeholder="အမည်" class="disable" disabled>
-          <input type="text" name="" id="" placeholder="အီးမေးလ်" class="disable" disabled>
-          <input type="text" name="" id="" placeholder="ဖုန်းနံပါတ်" class="disable" disabled>
-          <input type="text" name="" id="" placeholder="အသက်" class="disable" disabled>
-          <input type="text" name="" id="" placeholder="နေရပ်လိပ်စာ" class="disable" disabled>
-          <!-- <input type="text" name="" id="" placeholder="ကျား မ" disabled> -->
-          <select class="select-option-gender disable" disabled>
-            <option>ကျား</option>
-            <option>မ</option>
-          </select>
-          <select class="select-option-gender disable" disabled>
-            <option>နှင်းဆီ Defender</option>
-            <option>နှင်းဆီ</option>
-          </select>
-
-          <button type="button" id="edit-btn">ပြင်ဆင်မည်</button>
-          <input type="submit" value="အသစ်တင်မည်" class="disable" disabled>
-        </form>
-      </div>
+<div class="blog-sec">
+  <div class="article-div inner-container">
+    <div class="report-hdr">
+      <h2 class="report-h2">
+        ကိုယ်ရေးအကျဉ်း
+      </h2>
     </div>
 
-    <div class="report-blank-space"></div>
-    <footer id="footer"></footer>
+    <div class="inner-form">
+
+      <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="img-profile-div">
+          @if($user->profile)
+          <img class="img-profile" src="{{ asset('storage/images/'.$user->profile ) }}" alt="" class="img-profile">
+          @elseif ( $user->profile == null )
+          <img src=" {{ asset('image/user.png') }}" alt="" title="" class="img-profile">
+          @endif
+        </div>
+
+        <input type="file" name="profile" id="profile" style="display: none;" class="disable" disabled />
+        <label for="profile" class="label-btn">ပုံအသစ်တင်မည်</label>
+        <input type="text" name="name" id="" placeholder="အမည်" class="profile-input disable" disabled value="{{ $user->name }}" require>
+        <input type="email" name="email" id="" placeholder="အီးမေးလ်" class="profile-input disable" disabled value="{{ $user->email }}" require>
+        <input type="phone" name="phone" id="" placeholder="ဖုန်းနံပါတ်" class="profile-input disable" disabled value="{{ $user->phone }}" require>
+        <input type="number" min="1" max="120" name="age" id="" placeholder="အသက်" class="profile-input disable" disabled value="{{ $user->age }}" require>
+        <input type="text" name="address" id="" placeholder="နေရပ်လိပ်စာ" class="profile-input disable" disabled value="{{ $user->address }}" require>
+        <input type="password" name="password" id="" placeholder="password" class="profile-input disable" disabled  value="{{ $user->password }}" require>
+        <select id="gender" required name="gender" class="select-option-gender disable" disabled>
+          <option {{ ($user->gender) == 'female' ? 'selected' : '' }} value="female">မ</option>
+          <option {{ ($user->gender) == 'male' ? 'selected' : '' }} value="male">ကျား</option>
+        </select>
+        <select id="defender" required name="defender" class="select-option-gender disable" disabled>
+          <option {{ ($user->defender) == '1' ? 'selected' : '' }} value="1">နှင်းဆီ Defender</option>
+          <option {{ ($user->defender) == '0' ? 'selected' : '' }} value="0">နှင်းဆီ</option>
+        </select>
+
+        <button type="button" id="edit-btn">ပြင်ဆင်မည်</button>
+        <input type="submit" value="အသစ်တင်မည်" class="disable" disabled>
+      </form>
+    </div>
   </div>
+
+  <div class="report-blank-space"></div>
+  <footer id="footer"></footer>
+</div>
 @endsection

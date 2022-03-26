@@ -16,4 +16,12 @@ interface UserDaoInterface
    * @return Object $user user Object
    */
   public function searchuser(Request $request);
+  
+  public function userProfile();
+  public function updateUserProfile(Request $request);
+  public function adminProfile();
+  public function updateAdminProfile(Request $request);
+  
+
 }
+

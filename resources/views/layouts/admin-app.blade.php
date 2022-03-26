@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <title>@yield('title')</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700" rel="stylesheet">
 
   <!-- CSS Reset -->
   <link rel="stylesheet" href="{{ asset('css/admin/reset.css') }}">
@@ -32,10 +31,13 @@
       </div>
       <div class="column column-30">
         <div class="user-section"><a href="{{ url('/admin/profile') }}">
-            <img src="http://via.placeholder.com/50x50" alt="profile" class="circle float-left profile-photo" width="50"
-              height="auto">
+            @if( Auth::user()->profile)
+            <img class="img-profile" src="{{ asset('storage/images/'.Auth::user()->profile ) }}" alt="" lass="circle float-left profile-photo" width="50" height="auto">
+            @elseif ( Auth::user()->profile == null )
+            <img src=" {{ asset('image/user.png') }}" alt="" title="" lass="circle float-left profile-photo" width="50" height="auto">
+            @endif
             <div class="username">
-              <h4>Aye Myat Myat Soe</h4>
+              <h4>{{ Auth::user()->name }}</h4>
               <p>Administrator</p>
             </div>
           </a></div>

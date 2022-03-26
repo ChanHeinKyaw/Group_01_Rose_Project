@@ -35,4 +35,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $fillable = [
+        'name', 'email', 'phone', 'age', 'gender','defender','type',
+        'address','profile','password',    
+    ];
 }

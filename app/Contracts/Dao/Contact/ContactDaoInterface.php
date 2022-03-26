@@ -18,4 +18,10 @@ interface ContactDaoInterface
    * @return Object $contact contact Object
    */
   public function searchContact(Request $request);
+
+  public function userProfile();
+  public function updateUserProfile(Request $request);
+  public function adminProfile();
+  public function updateAdminProfile(Request $request);
+  
 }

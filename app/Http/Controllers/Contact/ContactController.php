@@ -12,12 +12,12 @@ use App\Contracts\Services\Contact\ContactServiceInterface;
 
 class ContactController extends Controller
 {
- 
+
     private $contactInterface;
 
     public function __construct(ContactServiceInterface $contactServiceInterface)
     {
-        $this-> contactInterface = $contactServiceInterface;
+        $this->contactInterface = $contactServiceInterface;
     }
     public function contactForm()
     {
@@ -34,7 +34,7 @@ class ContactController extends Controller
             'phone' => $contact['phone'],
             'subject' => $contact['subject'],
             'message' => $contact['message'],
-        ), function($message) use ($request){
+        ), function ($message) use ($request) {
             $message->from($request->email);
             $message->to('htaylail.hcis@gmail.com', 'Admin')->subject($request->get('subject'));
         });
@@ -46,25 +46,25 @@ class ContactController extends Controller
     {
         $contactList = $this->contactInterface->contactList();
         return view('admin-panel.contact', compact('contactList'))
-              ->with('no');
+            ->with('no');
     }
 
 
     /**
-   * To delete contact by id
-   * @param string $id contact id
-   * @return string $message message success or not
-   */
-  public function deleteContactById($id)
-  {
-    $this->contactInterface->deleteContactById($id);
-    return redirect('/contact');
-  }
+     * To delete contact by id
+     * @param string $id contact id
+     * @return string $message message success or not
+     */
+    public function deleteContactById($id)
+    {
+        $this->contactInterface->deleteContactById($id);
+        return redirect('/contact');
+    }
 
-  public function searchContact(Request $request)
-  {        
-    $contactList = $this->contactInterface->searchContact($request);    
-    return view('admin-panel.contact', compact('contactList'))
-    ->with('no');
-  }
+    public function searchContact(Request $request)
+    {
+        $contactList = $this->contactInterface->searchContact($request);
+        return view('admin-panel.contact', compact('contactList'))
+            ->with('no');
+    }
 }

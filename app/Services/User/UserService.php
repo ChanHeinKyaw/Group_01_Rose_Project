@@ -36,6 +36,10 @@ class UserService implements UserServiceInterface
     return $this->userDao->userList();
   }
 
+  /**
+   * To update user role
+   * @return array $user with $id
+   */
   public function updateUserRole($id)
   {
     return $this->userDao->updateUserRole($id);
@@ -49,5 +53,40 @@ class UserService implements UserServiceInterface
   {
     return $this->userDao->searchUser($request);
   }
-  
+
+  /**
+   * To get user profile
+   * @return Object $user
+   */
+  public function userProfile()
+  {
+    return $this->userDao->userProfile();
+  }
+
+  /**
+   * To update user profile
+   * @return Object $user update data
+   */
+  public function updateUserProfile(Request $request)
+  {
+    return $this->userDao->updateUserProfile($request);
+  }
+
+  /**
+   * To get admin profile
+   * @return Object $admin
+   */
+  public function adminProfile()
+  {
+    return $this->userDao->adminProfile();
+  }
+
+  /**
+   * To update admin profile
+   * @return Object $admin update data
+   */
+  public function updateAdminProfile(Request $request)
+  {
+    return $this->userDao->updateAdminProfile($request);
+  }
 }

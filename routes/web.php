@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\RecordController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminProfileController;
-
+use App\Http\Controllers\Contact\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,11 +52,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::post('/user', 'User\UserController@userList');
     Route::post('/user/{id}', 'User\UserController@updateUserRole')->name('user.change-role');
     Route::get('/search', 'User\UserController@searchUser')->name('user.search');
+
+    Route::get('/profile', 'User\UserController@adminProfile');
 });
 
 Route::get('/contact-form', [ContactController::class, 'contactForm'])->name('contact-form');
 Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
-    
+
+Route::get('/profile', 'User\UserController@userProfile');
+Route::post('/profile', 'User\UserController@updateUserProfile')->name('profile.update');
+Route::get('/admin/profile', 'User\UserController@adminProfile');
+Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
+
 
 
 
