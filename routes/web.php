@@ -39,11 +39,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     //Admin Panel
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
-    Route::get('/post', [PostController::class, 'index']);
+    //Route::get("/post", function(){
+    //    return view("admin-panel.post");
+    //});
+    Route::resource('/post', 'Admin\PostController');
+    //Route::get('/post', 'Admin\PostController@search')->name('search');
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
     Route::get('/contact', [ContactUsController::class, 'index']);
     Route::get('/profile', [AdminProfileController::class, 'index']);
+<<<<<<< HEAD
 
     Route::get('/contact', 'Contact\ContactController@contactList');
     Route::delete('/contact/{id}', 'Contact\ContactController@deleteContactById')->name('contact.delete');
@@ -67,3 +72,6 @@ Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('p
 
 
 
+=======
+});
+>>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
