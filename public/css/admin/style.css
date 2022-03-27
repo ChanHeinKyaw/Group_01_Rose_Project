@@ -184,6 +184,7 @@ textarea {
   float: left;
   width: 30%;
   margin-left: 95px;
+  text-align: center;
 }
 
 .profile h2 {
@@ -555,7 +556,7 @@ select:focus {
   width: 100%;
   background: #fff;
   height: 80px;
-  padding: 20px 0;
+  padding: 15px 0;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -707,6 +708,8 @@ select:focus {
 .user-section img {
   margin-right: 10px;
   float: left;
+  margin-top: 5px;
+  border-radius: 10px;
 }
 
 .user-section .username {

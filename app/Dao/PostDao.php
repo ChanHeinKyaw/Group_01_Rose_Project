@@ -37,7 +37,7 @@ class PostDao implements PostDaoInterface{
         return $this->model->create(
             [
                 'title' => $request->title,
-                 'description' => $request->title,
+                 'description' => $request->description,
                  'img' => $post_img_name,
                  ]
         );

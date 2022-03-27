@@ -38,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [PageController::class, 'contact']);
     Route::get('/about', [PageController::class, 'about']);
     Route::get('/profile', [PageController::class, 'profile']);
+
+    Route::get('/post/{id}/detail', [PageController::class, 'postDetail']);
+    Route::get('like/{id}',"LikeController@like");
+    Route::post('comment/{id}',"CommentController@comment");
+    Route::get('comment-overview',"CommentController@commentOverview");
 });
 
 
@@ -46,7 +51,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
 
-    Route::resource('/post', 'Admin\PostController');
+    Route::resource('/post','Admin\PostController');
+
+    //Route::get('/post',[PostController::class, 'index'])->name('post.index');
+    //Route::get('/post/create',[PostController::class, 'create'])->name('post.create');
+    //Route::post('/post/create',[PostController::class, 'store'])->name('post.store');
+    //Route::get('/post/{id}/edit',[PostController::class, 'edit'])->name('post.edit');
+    //Route::post('/post/{id}',[PostController::class, 'update'])->name('post.update');
+    //Route::post('/post/{id}',[PostController::class, 'destroy'])->name('post.destroy');
 
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);

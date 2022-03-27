@@ -21,15 +21,16 @@ class PostController extends Controller
        $posts = $this->postService->getAll();
         return view('admin-panel.post.post',['posts' => $posts]);
     }
+
     public function create()
     {
         return view('admin-panel.post.post-create');
     }
+
     public function store(Request $request)
     {
         $this->postService->create($request);
          return redirect()->route('post.index')->with("success", "Post Create successfully");
-
     }
     public function edit(Post $post)
     {
