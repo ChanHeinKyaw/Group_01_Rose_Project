@@ -54,6 +54,24 @@ $(document).ready(function () {
         modal.style.display = "none";
     });
 
+    // Popup Form
+    var modalTwo = document.getElementById('myFormTwo');
+    $('#showFormTwo').on('click', function (e) {
+        e.preventDefault();
+        modalTwo.style.display = "block";
+    });
+
+    $('#closeFormTwo').on('click', function (e) {
+        e.preventDefault();
+        modalTwo.style.display = "none";
+    });
+
+    $('#sendFormTwo').one('click', function (e) {
+        e.preventDefault();
+        console.log("Ok");
+        // $(this).attr("disabled", "disabled");
+    });
+
     //// ===== Scroll to Top ==== 
     window.addEventListener('scroll', e => {
         var el = document.getElementById('jsScroll');
