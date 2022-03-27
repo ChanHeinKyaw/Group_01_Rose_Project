@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
@@ -32,6 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [PageController::class, 'contact']);
     Route::get('/about', [PageController::class, 'about']);
     Route::get('/profile', [PageController::class, 'profile']);
+    Route::get('/post/{id}/detail', [PageController::class, 'postDetail']);
+    Route::get('like/{id}',"LikeController@like");
+    Route::post('comment/{id}',"CommentController@comment");
+    Route::get('comment-overview',"CommentController@commentOverview");
 });
 
 
@@ -39,11 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     //Admin Panel
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
-    //Route::get("/post", function(){
-    //    return view("admin-panel.post");
-    //});
     Route::resource('/post', 'Admin\PostController');
-    //Route::get('/post', 'Admin\PostController@search')->name('search');
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
     Route::get('/contact-us', [ContactUsController::class, 'index']);

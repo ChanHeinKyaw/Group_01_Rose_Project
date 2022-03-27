@@ -65,3 +65,27 @@ $(document).ready(function () {
     });
 
 });
+
+$(document).ready(function () {
+    $('.like').click(function () {
+        var id = $(this).data('id');
+        $.ajax({
+            method: "GET",
+            url: `/like/${id}`,
+            success: function (res) {
+                $('.like').text(res.likes)
+                if ($('.like').hasClass('disable')) {
+                    $('.like').removeClass('disable');
+                } else {
+                    $('.like').addClass('disable');
+                }
+            }
+        })
+    })
+})
+
+function togglePopup() {
+    document.getElementById("popup-1").classList.toggle("active");
+}
+
+
