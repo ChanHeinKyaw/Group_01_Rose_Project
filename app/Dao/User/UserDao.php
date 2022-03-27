@@ -45,36 +45,6 @@ class UserDao implements UserDaoInterface
 
   public function searchUser(Request $request)
   {
-
-    // $search_text = $request->get('query');
-    // $userList = user::where('name', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('phone', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('email', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('age', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('gender', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('defender', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('address', 'LIKE', '%' . $search_text . '%')
-    //   ->orWhere('type', 'LIKE', '%' . $search_text . '%')
-    //   ->get();
-
-    // return $userList;
-
-
-    //     $query = DB::table('node');
-    // if ($published == true)
-    //     $query->where('published', '=', 1);
-    // if (isset($year))
-    //     $query->where('year', '>', $year);
-    // $result = $query->get();
-    //     $users = User::select("*",
-    //     \DB::raw('(CASE 
-    //         WHEN users.status = "0" THEN "User" 
-    //         WHEN users.status = "1" THEN "Admin" 
-    //         ELSE "SuperAdmin" 
-    //         END) AS status_lable'))
-    // ->get();
-
-
     $search_text = $request->get('query');
 
     $userList = user::where('name', 'LIKE', '%' . $search_text . '%')
@@ -93,73 +63,98 @@ class UserDao implements UserDaoInterface
 
   public function userProfile()
   {
-      $user = Auth::user();
-      return $user;
+    $user = Auth::user();
+    return $user;
   }
 
   public function updateUserProfile(Request $request)
   {
+    $user_id = Auth::user()->id;
+    $user = User::find($user_id);
 
-      $user_id = Auth::user()->id;
-      $user = User::find($user_id);
-                  
-      if ($request->hasFile('profile')) {
-          $filename = $request->profile->getClientOriginalName();
-          $request->profile->storeAs('public/images',$filename);
+    if ($request->hasFile('profile')) {
+      $filename = $request->profile->getClientOriginalName();
+      $request->profile->storeAs('public/images', $filename);
 
-          $user->update([
-              'name' => $request->name,
-              'email' => $request->email,
-              'phone' => $request->phone,
-              'age' => $request->age,
-              'gender' => $request->gender,
-              'defender' => $request->defender,
-              'type' => $user->type = 0,
-              'address' => $request->address,
-              'profile' => $filename,
-              'password' => $request->password,
-              'updated_at' => now(),             
-          ]);
-      } 
-        
-      $user->save();
-      return $user;
-      
-  
+      $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'defender' => $request->defender,
+        'type' => $user->type = 0,
+        'address' => $request->address,
+        'profile' => $filename,
+        'password' => $request->password,
+        'updated_at' => now(),
+      ]);
+    } else {
+      $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'defender' => $request->defender,
+        'type' => $user->type = 0,
+        'address' => $request->address,
+        'profile' => $user->profile,
+        'password' => $request->password,
+        'updated_at' => now(),
+      ]);
+    }
+
+    $user->save();
+    return $user;
   }
 
 
   public function adminProfile()
   {
-      $user = Auth::user();
-      return $user;
+    $user = Auth::user();
+    return $user;
   }
 
   public function updateAdminProfile(Request $request)
   {
+    $user_id = Auth::user()->id;
+    $user = User::find($user_id);
 
-      $user_id = Auth::user()->id;
-      $user = User::find($user_id);
-                  
-      if ($request->hasFile('profile')) {
-          $filename = $request->profile->getClientOriginalName();
-          $request->profile->storeAs('public/images',$filename);
+    if ($request->hasFile('profile')) {
+      $filename = $request->profile->getClientOriginalName();
+      $request->profile->storeAs('public/images', $filename);
 
-          $user->update([
-              'name' => $request->name,
-              'email' => $request->email,
-              'phone' => $request->phone,
-              'age' => $request->age,
-              'gender' => $request->gender,
-              'defender' => $request->defender,
-              'type' => $user->type=1,
-              'address' => $request->address,
-              'profile' => $filename,
-              'password' => $request->password,
-              'updated_at' => now(),             
-          ]);
-      }
-      $user->save();
-      return $user;        
+      $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'defender' => $request->defender,
+        'type' => $user->type = 1,
+        'address' => $request->address,
+        'profile' => $filename,
+        'password' => $request->password,
+        'updated_at' => now(),
+      ]);
+    } else {
+      $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'defender' => $request->defender,
+        'type' => $user->type = 1,
+        'address' => $request->address,
+        'profile' => $user->profile,
+        'password' => $request->password,
+        'updated_at' => now(),
+      ]);
+    }
+    $user->save();
+    return $user;
+
   }
 }

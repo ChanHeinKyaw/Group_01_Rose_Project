@@ -10,7 +10,9 @@ use App\Http\Controllers\Admin\RecordController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminProfileController;
-use App\Http\Controllers\Contact\ContactController;
+// use App\Http\Controllers\Contact\ContactController;
+// use App\Http\Controllers\User\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,22 +65,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/contact-us', [ContactUsController::class, 'index']);
     Route::get('/profile', [AdminProfileController::class, 'index']);
 
+    Route::get('/contact', [ContactUsController::class, 'contactList']);
+    Route::delete('/contact/{id}', [ContactUsController::class, 'deleteContactById'])->name('contact.delete');
+    Route::get('/contact/search', [ContactUsController::class, 'searchContact'])->name('contact.search');
 
-    Route::get('/contact', 'Contact\ContactController@contactList');
-    Route::delete('/contact/{id}', 'Contact\ContactController@deleteContactById')->name('contact.delete');
-    Route::get('/contact/search', 'Contact\ContactController@searchContact')->name('contact.search');
-    Route::get('/user', 'User\UserController@userList');
-    Route::post('/user', 'User\UserController@userList');
-    Route::post('/user/{id}', 'User\UserController@updateUserRole')->name('user.change-role');
-    Route::get('/search', 'User\UserController@searchUser')->name('user.search');
-
-    Route::get('/profile', 'User\UserController@adminProfile');
+    Route::get('/user', [UserController::class, 'userList']);
+    Route::post('/user', [UserController::class, 'userList']);
+    Route::post('/user/{id}', [UserController::class, 'updateUserRole'])->name('user.change-role');
+    Route::get('/search', [UserController::class, 'searchUser'])->name('user.search');
+    Route::get('/admin/profile', [UserController::class, 'adminProfile']);
+    Route::post('/admin/profile', [UserController::class, 'updateAdminProfile'])->name('admin-profile.update');
 });
 
-Route::get('/contact-form', [ContactController::class, 'contactForm'])->name('contact-form');
-Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
+Route::get('/contact-form', [ContactUsController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact-form', [ContactUsController::class, 'storeContactForm'])->name('contact-form.store');
 
-Route::get('/profile', 'User\UserController@userProfile');
-Route::post('/profile', 'User\UserController@updateUserProfile')->name('profile.update');
-Route::get('/admin/profile', 'User\UserController@adminProfile');
-// Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
+Route::get('/profile', [UserController::class, 'userProfile']);
+Route::post('/profile', [UserController::class, 'updateUserProfile'])->name('profile.update');
