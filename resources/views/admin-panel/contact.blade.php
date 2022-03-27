@@ -5,11 +5,9 @@
   <h5 class="mt-2">Contact us</h5><a class="anchor" name="users"></a>
   <div class="row grid-responsive">
     <div class="column ">
-
       <div class="card ">
-
         <div class="main-pt clearfix">
-          <form type="get" class="user-form" action="{{ route('contact.search') }}" >
+          <form type="get" class="user-form" action="{{ route('contact.search') }}">
             <input type="search" name="query" class="search" placeholder="Search here!">
             <button class="submit" type="submit">Search</button>
           </form>
