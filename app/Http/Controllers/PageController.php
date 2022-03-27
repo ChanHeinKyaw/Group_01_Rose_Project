@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index()
     {
-        return view('ui-panel.index');
+        $posts = Post::all();
+        return view('ui-panel.index', compact('posts'));
+    }
+
+    public function postDetail($id)
+    {
+        $post = Post::find($id);
+        return view('ui-panel.article',compact('post'));
     }
 
     public function report()

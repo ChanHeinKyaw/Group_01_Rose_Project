@@ -79,8 +79,10 @@
 
   @yield('content')
 
-  <script src="js/library/jquery-3.6.0.min.js"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ asset('js/common.js') }}"></script>
 </body>
 
 </html>
+
+@yield('scripts')

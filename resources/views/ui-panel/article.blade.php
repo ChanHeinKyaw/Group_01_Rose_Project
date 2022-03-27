@@ -3,7 +3,6 @@
 @section('content')
 
   <div class="blank-space"></div>
-
   <div class="blog-sec p-top">
     <div class="article-div inner-container">
       <div class="center">
@@ -11,38 +10,74 @@
       </div>
 
       <div class="article-blog-img">
-        <img src="img/article.jpg" class="article-src-img" alt="Article Image">
+        <img src="{{ asset('storage/post/' . $post->img) }}" class="article-src-img" alt="Article Image">
       </div>
 
       <div class="article-sec">
-        <p>MiMi Aung ( Burmese : မိမိအောင် , Burmese pronunciation : [mḭ mḭ àʊɰ̃] ; born 1968) is a
-          Burmese-American
-          engineer and a project manager at NASA 's Jet Propulsion Laboratory (JPL). သူမသည် Mars Helicopter
-          Ingenuity
-          တွင် ဦးဆောင်အင်ဂျင်နီယာတစ်ဦး ဖြစ်ပြီး ပထမဆုံး အာကာသယာဉ်ဖြစ်သည်။ [1]
-
-          အောင် သူသည် အသက် ၂ နှစ်အရွယ်တွင် မိသားစု မြန်မာပြည်သို့ ပြန်လာခဲ့သော်လည်း မိဘများ တွေ့ဆုံခဲ့သည့်
-          အမေရိကန်ပြည်ထောင်စုတွင် မွေးဖွားခဲ့သည် ။ [2] ငယ်စဉ်က မြန်မာနိုင်ငံနှင့် မလေးရှားတွင်
-          နေထိုင်ပြီးနောက်
-          အောင်သည်
-          အသက် 16 နှစ်အရွယ်တွင် အမေရိကန်သို့ ပြန်လာပြီး Urbana-Champaign ရှိ University of Illinois တွင်
-          အင်ဂျင်နီယာဘာသာရပ်ဖြင့် ဘွဲ့နှင့် မဟာဘွဲ့များ ရရှိခဲ့သည်။ 1990 တွင်သူမသည် JPL သို့ဝင်ရောက်ခဲ့သည်။
-          [3]
-
-          ဖေဖော်ဝါရီ 18 ရက် 2021 တွင် Ingenuity သည် Mars ပေါ်သို့ ရောက်ရှိခဲ့ပြီး April 19 တွင် ၎င်း၏ပထမဆုံး
-          39
-          စက္ကန့်ပျံသန်းခဲ့သည်။ [4] Aung က “မယုံနိုင်လောက်စရာ အခိုက်အတန့်ပါပဲ” နဲ့ “ဒီမနက် ငါတို့အိပ်မက်တွေ
-          တကယ်ဖြစ်လာခဲ့တယ်” လို့ ပြောပါတယ်။ အဆိုပါ ပျံသန်းမှု ကို ရဟတ်ယာဉ်ဖြင့် အင်္ဂါဂြိုလ်သို့
-          သယ်ဆောင်သွားသည့်
-          Wright
-          Brothers လေယာဉ် ၏ 1903 ခုနှစ်တွင် ပထမဆုံးပျံသန်းသည့် လေယာဉ်နှင့် နှိုင်းယှဉ်ထားသည် ။ [5]
-        </p>
+        <p>{{ $post->description }}</p>
       </div>
     </div>
     <div class="article-div inner-container">
-
+      <i class="far fa-heart like {{ $post->likes->contains('user_id', auth()->id()) ? 'disable' : '' }}"
+        data-id={{ $post->id }}>{{ $post->likes->count() }}</i>
+      <a href="#" onclick="togglePopup()" class="comment"><i class="far fa-comment"></i> comment</a>
     </div>
-    <footer id="footer"></footer>
+    <footer id="footer">
+    </footer>
   </div>
 
+  <div class="popup" id="popup-1">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="close-btn" onclick="togglePopup()">&times</div>
+      @csrf
+      <textarea name="comment" cols="50" rows="3" placeholder="Comment..." id="comment"></textarea>
+      <button class="cmt-btn" id="cmtBtn" data-id={{ $post->id }}><i class="far fa-comment"></i> Send</button>
+      <br><br>
+      @if (count($post->comments) > 0)
+        @foreach ($post->comments as $comment)
+          <div class="comment" id="comment-box">
+
+            @if ($comment->user->profile)
+              <img src="{{ asset('storage/images/' . $comment->user->profile) }}" alt="" class="img-profile">
+            @elseif($comment->user->profile)
+              <img src="{{ asset('image/user.png') }}" alt="" title="" class="img-profile">
+            @endif
+          
+            <strong class="name">{{ $comment->user->name }}</strong><br>
+
+            <div class="message-box">
+              {{ $comment->comment }}
+            </div>
+          </div><br>
+        @endforeach
+      @endif
+    </div>
+  </div>
+@endsection
+
+@section('scripts')
+  <script>
+    $(document).ready(function() {
+      $('#cmtBtn').click(function() {
+        var id = $(this).data('id');
+        var cmt_value = $("#comment").val();
+        $.ajax({
+          method: "POST",
+          url: `/comment/${id}`,
+          data: {
+            comment: cmt_value,
+            _token: "{{ csrf_token() }}",
+          },
+          success: function(res) {
+            $cmt_txt =
+              '<img src="{{ asset('storage/post/' . $post->img) }}" alt=""><strong class="name">{{ auth()->user()->name }}</strong><br><div class="message-box">' +
+              cmt_value + '</div><br>';
+            $('#comment-box').prepend($cmt_txt);
+            $("#comment").val("");
+          }
+        })
+      })
+    })
+  </script>
 @endsection
