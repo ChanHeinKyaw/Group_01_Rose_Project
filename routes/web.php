@@ -81,4 +81,4 @@ Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->na
 Route::get('/profile', 'User\UserController@userProfile');
 Route::post('/profile', 'User\UserController@updateUserProfile')->name('profile.update');
 Route::get('/admin/profile', 'User\UserController@adminProfile');
-Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
+// Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
