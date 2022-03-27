@@ -9,9 +9,13 @@
       <div class="column clearfix main-pt">
         <div class="card">
           <div class="all-btn ">
-            <input type="file" placeholder="Title" id="title" class="fileInput">
-            <a class="button cr-posts">Import</a>
-            <a class="button cr-posts">Export</a>
+            <form action="{{ route('admin#import') }}" method="post" enctype="multipart/form-data">
+              @csrf
+              <input type="file" name="file" placeholder="Title" id="title" class="fileInput" required>
+              <input type="submit" class="button cr-posts" value="Import">
+            </form>
+            
+            <a href="{{ route('admin#export') }}" class="button cr-posts">Export</a>
           </div>
           <table>
             <thead>
@@ -24,20 +28,17 @@
               </tr>
             </thead>
             <tbody>
+  
+              @foreach ($data as $record)
               <tr>
-                <td>1</td>
-                <td>UI Developer</td>
-                <td>23</td>
-                <td>Philadelphia, PA</td>
+                <td>{{$loop->index + 1}}</td>
+                <td>{{ $record->user_id }}</td>
+                <td>{{ $record->case }}</td>
+                <td>{{ $record->address }}</td>
 
               </tr>
-              <tr>
-                <td>1</td>
-                <td>UI Developer</td>
-                <td>23</td>
-                <td>Philadelphia, PA</td>
-
-              </tr>
+              @endforeach
+              
             </tbody>
           </table>
         </div>

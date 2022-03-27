@@ -13,27 +13,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Dao Registration
         $this->app->bind('App\Contracts\Dao\Contact\ContactDaoInterface', 'App\Dao\Contact\ContactDao');
         $this->app->bind('App\Contracts\Dao\User\UserDaoInterface', 'App\Dao\User\UserDao');
+        $this->app->bind('App\Contracts\Dao\PostDaoInterface', 'App\Dao\PostDao');
+        $this->app->bind("App\Contracts\Dao\Record\RecordDaoInterface", "App\Dao\Record\RecordDao");
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Contact\ContactServiceInterface', 'App\Services\Contact\ContactService');
         $this->app->bind('App\Contracts\Services\User\UserServiceInterface', 'App\Services\User\UserService');
-=======
-=======
->>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
-         // Dao Registration
-         $this->app->bind('App\Contracts\Dao\PostDaoInterface', 'App\Dao\PostDao');
-
-         // Business logic registration
-         $this->app->bind('App\Contracts\Services\PostServiceInterface', 'App\Services\PostService');
-<<<<<<< HEAD
->>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
-=======
->>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
+        $this->app->bind('App\Contracts\Services\PostServiceInterface', 'App\Services\PostService');
+        $this->app->bind("App\Contracts\Services\Record\RecordServiceInterface", "App\Services\Record\RecordService");
+        
     }
 
     /**

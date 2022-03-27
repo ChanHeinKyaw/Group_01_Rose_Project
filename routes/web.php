@@ -28,7 +28,11 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     //Ui Panel
     Route::get('/', [PageController::class, 'index']);
-    Route::get('/report', [PageController::class, 'report']);
+
+    Route::get('/report', [RecordController::class, 'createViewReport'])->name('report');
+    Route::post('/report', [RecordController::class, 'createReport'])->name('post#report');
+
+
     Route::get('/contact', [PageController::class, 'contact']);
     Route::get('/about', [PageController::class, 'about']);
     Route::get('/profile', [PageController::class, 'profile']);
@@ -39,17 +43,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     //Admin Panel
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
-    //Route::get("/post", function(){
-    //    return view("admin-panel.post");
-    //});
+
     Route::resource('/post', 'Admin\PostController');
-    //Route::get('/post', 'Admin\PostController@search')->name('search');
+
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
     Route::get('/contact', [ContactUsController::class, 'index']);
+    Route::get('/post', [PostController::class, 'index']);
+
+    Route::get('/graph', [RecordController::class, 'graphView']);
+    Route::get('/graph-data', [RecordController::class, 'graph']);
+
+
+    Route::get('/record', [RecordController::class, 'showViewRecord'])->name('admin#record');
+    Route::get('/export', [RecordController::class, 'export'])->name('admin#export');
+    Route::post('/import', [RecordController::class, 'import'])->name('admin#import');
+
+
+    Route::get('/contact-us', [ContactUsController::class, 'index']);
     Route::get('/profile', [AdminProfileController::class, 'index']);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
     Route::get('/contact', 'Contact\ContactController@contactList');
     Route::delete('/contact/{id}', 'Contact\ContactController@deleteContactById')->name('contact.delete');
@@ -68,14 +81,4 @@ Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->na
 Route::get('/profile', 'User\UserController@userProfile');
 Route::post('/profile', 'User\UserController@updateUserProfile')->name('profile.update');
 Route::get('/admin/profile', 'User\UserController@adminProfile');
-Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
-
-
-
-
-=======
-});
->>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
-=======
-});
->>>>>>> 088b2019b0b7dde29aa321ba30adc9b131577437
+// Route::post('/admin/profile', 'User\UserController@updateAdminProfile')->name('profile.update');
