@@ -69,6 +69,7 @@
 
     @yield('content')
   </div>
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script src="{{ asset('js/chart.min.js') }}"></script>
   <script src="{{ asset('js/chart-data.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>

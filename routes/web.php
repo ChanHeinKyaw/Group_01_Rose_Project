@@ -46,7 +46,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/post', [PostController::class, 'index']);
-    Route::get('/graph', [GraphController::class, 'index']);
+    // Route::get('/graph', [GraphController::class, 'index']);
+    Route::get('/graph', [RecordController::class, 'graphView']);
+    Route::get('/graph-data', [RecordController::class, 'graph']);
 
 
     Route::get('/record', [RecordController::class, 'showViewRecord'])->name('admin#record');

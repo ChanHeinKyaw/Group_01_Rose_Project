@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
+use App\Http\Controllers\Controller;
 use App\Contracts\Services\Record\RecordServiceInterface;
+use App\Models\Record;
 
 class RecordController extends Controller
 {
@@ -85,5 +87,19 @@ class RecordController extends Controller
         $this->recordService->import();
         
         return back();
+    }
+
+    public function graphView()
+    {
+        return view('admin-panel.graph');
+    }
+
+    public function graph()
+    {
+
+        $allDataCount = Record::all();
+        $dataone = DB::table('records')->join('users', 'records.user_id', 'users.id')->select('users.age as user_age', DB::raw('COUNT(users.age) as count_user_age'))->groupBy('user_age')->having('user_age', '>' , '1')->get();
+
+        return [count($allDataCount), $dataone];
     }
 }
