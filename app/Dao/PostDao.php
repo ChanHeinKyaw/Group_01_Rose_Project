@@ -47,7 +47,6 @@ class PostDao implements PostDaoInterface{
         $request->validate([
             "title" => ["required"],
             "description" => ["required"],
-            'img' => 'required|image|mimes:jpeg,jpg,png,gif',
         ]);
         $input = $request->all();
         $post_img_name = null;

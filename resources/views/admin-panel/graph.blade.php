@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="column column-50">
+      <div class="column column-50" style="display: none;">
         <div class="card">
           <div class="card-title">
             <h2>Line Chart</h2>

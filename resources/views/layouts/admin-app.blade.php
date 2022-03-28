@@ -35,9 +35,7 @@
         <h1>နှင်းဆီ🌹</h1>
       </a>
     </div>
-    <div class="column column-40 col-search"><a href="#" class="search-btn fa fa-search"></a>
-      <input type="text" name="" value="" placeholder="Search..." />
-    </div>
+
     <div class="column column-30">
       <div class="user-section">
         <a href="{{ url('/admin/profile') }}">
