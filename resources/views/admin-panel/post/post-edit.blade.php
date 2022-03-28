@@ -7,7 +7,7 @@
         <h5 class="mt-2">Posts</h5><a class="anchor" name="posts"></a>
         <div class="row grid-responsive">
             <div class="pull-right">
-                <a class="submit" href="{{ route('post.index') }}"> Back</a>
+                <a class="submit" href="{{ url('admin/post') }}"> Back</a>
             </div>
             <div class="column pt-card">
                 <h1>Edit Post</h1>

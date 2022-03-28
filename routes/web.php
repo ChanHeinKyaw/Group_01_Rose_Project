@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\GraphController;
@@ -40,9 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [PageController::class, 'profile']);
 
     Route::get('/post/{id}/detail', [PageController::class, 'postDetail']);
-    Route::get('like/{id}',"LikeController@like");
-    Route::post('comment/{id}',"CommentController@comment");
-    Route::get('comment-overview',"CommentController@commentOverview");
+    Route::get('like/{id}', "LikeController@like");
+    Route::post('comment/{id}', "CommentController@comment");
+    Route::get('comment-overview', "CommentController@commentOverview");
+
+    Route::get('/contact-form', [ContactUsController::class, 'contactForm'])->name('contact-form');
+    Route::post('/contact-form', [ContactUsController::class, 'storeContactForm'])->name('contact-form.store');
+
+    Route::get('/profile', [UserController::class, 'userProfile']);
+    Route::post('/profile', [UserController::class, 'updateUserProfile'])->name('profile.update');
 });
 
 
@@ -51,23 +58,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/user', [UserController::class, 'index']);
 
-    Route::resource('/post','Admin\PostController');
-
-    //Route::get('/post',[PostController::class, 'index'])->name('post.index');
-    //Route::get('/post/create',[PostController::class, 'create'])->name('post.create');
-    //Route::post('/post/create',[PostController::class, 'store'])->name('post.store');
-    //Route::get('/post/{id}/edit',[PostController::class, 'edit'])->name('post.edit');
-    //Route::post('/post/{id}',[PostController::class, 'update'])->name('post.update');
-    //Route::post('/post/{id}',[PostController::class, 'destroy'])->name('post.destroy');
+    Route::resource('/post', 'Admin\PostController');
 
     Route::get('/graph', [GraphController::class, 'index']);
     Route::get('/record', [RecordController::class, 'index']);
     Route::get('/contact', [ContactUsController::class, 'index']);
-    Route::get('/post', [PostController::class, 'index']);
 
     Route::get('/graph', [RecordController::class, 'graphView']);
     Route::get('/graph-data', [RecordController::class, 'graph']);
-
 
     Route::get('/record', [RecordController::class, 'showViewRecord'])->name('admin#record');
     Route::get('/export', [RecordController::class, 'export'])->name('admin#export');
@@ -88,9 +86,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/admin/profile', [UserController::class, 'adminProfile']);
     Route::post('/admin/profile', [UserController::class, 'updateAdminProfile'])->name('admin-profile.update');
 });
-
-Route::get('/contact-form', [ContactUsController::class, 'contactForm'])->name('contact-form');
-Route::post('/contact-form', [ContactUsController::class, 'storeContactForm'])->name('contact-form.store');
-
-Route::get('/profile', [UserController::class, 'userProfile']);
-Route::post('/profile', [UserController::class, 'updateUserProfile'])->name('profile.update');
