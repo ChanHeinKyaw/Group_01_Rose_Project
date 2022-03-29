@@ -14,7 +14,7 @@
             <button class="submit" type="submit">Search</button>
           </form>
 
-          <table class="one">
+          <table class="user-tb">
             <colgroup>
               <col span="2">
             </colgroup>

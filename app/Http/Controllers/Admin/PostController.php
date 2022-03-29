@@ -36,7 +36,7 @@ class PostController extends Controller
     
     public function edit(Post $post)
     {
-        return view('admin-panel.post.post-edit', compact('post'));
+        return view('admin-panel.post.post-edit', ['post' => $post]);
     }
 
     public function update(Request $request, Post $post)

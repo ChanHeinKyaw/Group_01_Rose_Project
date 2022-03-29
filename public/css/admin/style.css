@@ -32,16 +32,16 @@
     float:right;
 }
 .all-btn {
-  width: 40%;
-  float: right;
+  /*width: 40%;
+  float: right;*/
   padding: 30px 30px 0 0;
 }
 
 .all-btn .import {}
-
+/*
 input[type=file] {
   color: transparent;
-}
+}*/
 
 .search-i {
   width: 50px;
@@ -64,9 +64,8 @@ input[type=file] {
   background-color: #008000;
   margin-right: 15px;
   color: #000;
-
   float:left;
-}
+  }
 .swal-button {
   padding:0 12px;
 }
@@ -76,6 +75,7 @@ input[type=file] {
   margin-bottom: 20px;
 }
 .pull-right a {
+    color:#000;
     background-color: #EBC048;
     border: 1px solid #EBC048;
     border-radius: 10px;
@@ -110,6 +110,9 @@ input[type=file] {
   margin: 20px 30px;
 }
 
+.user-tb th{
+  width: 20px;
+}
 .pt-card {
   background: #fff;
   box-shadow: 0px 0px 25px rgb(0 0 0 / 5%);
@@ -128,7 +131,10 @@ input[type=file] {
 
 .fileInput {
   padding-top: 10px;
-  width: 30%;
+}
+.record-fm {
+    width: 70%;
+    float:right;
 }
 
 .main-pt tr:hover {
@@ -175,7 +181,7 @@ textarea {
 }
 
 .user-form {
-  width: 40%;
+  width: 45%;
   float: right;
   margin-top: 20px;
 }
@@ -878,9 +884,14 @@ select:focus {
 }
 
 /* Tablet */
-/*@media (min-width: 640px) and (max-width: 768px) {
+@media (min-width: 640px) and (max-width: 768px) {
   #sidebar {
     width: 30% !important; }
+  
+  .record-fm { 
+        width: 60%;
+        background-color: #000;
+    }
 
   #main-content {
     width: 70% !important;
@@ -933,11 +944,16 @@ select:focus {
   .user-section {
     margin-right: 20px; }
     .user-section .username {
-      display: none; } }*/
-@media (min-width: 768px) and (max-width: 960px) {
+      display: none; } 
+    }
+@media (min-width: 767px) and (max-width: 1024px) {
   .row.grid-responsive {
     flex-direction: column;
   }
+
+    .fileInput {
+        width: 30%;
+    }
 
   .row.grid-responsive .column,
   .row.grid-responsive .column.column-10,
@@ -963,7 +979,7 @@ select:focus {
   }
 
   .user-form {
-    width: 50%;
+    width: 60%;
   }
 
   #main-content {
@@ -982,4 +998,5 @@ select:focus {
   .user-section .username {
     display: none;
   }
+
 }
