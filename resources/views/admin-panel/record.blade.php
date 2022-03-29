@@ -9,13 +9,12 @@
       <div class="column clearfix main-pt">
         <div class="card">
           <div class="all-btn ">
-            <form action="{{ route('admin#import') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin#import') }}" method="post" enctype="multipart/form-data" class="record-fm">
               @csrf
               <input type="file" name="file" placeholder="Title" id="title" class="fileInput" required>
               <input type="submit" class="button cr-posts" value="Import">
+              <a href="{{ route('admin#export') }}" class="button cr-posts">Export</a>
             </form>
-            
-            <a href="{{ route('admin#export') }}" class="button cr-posts">Export</a>
           </div>
           <table>
             <thead>

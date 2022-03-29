@@ -13,5 +13,5 @@ interface PostServiceInterface {
 
     public function delete($post);
 
-    public function search(Request $request);
+   
 }

@@ -13,6 +13,4 @@ interface PostDaoInterface {
     public function create(Request $request);
 
     public function delete($post);
-
-    public function search(Request $request);
 }
