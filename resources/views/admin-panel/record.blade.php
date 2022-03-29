@@ -7,8 +7,8 @@
     <h5 class="mt-2">Records</h5><a class="anchor" name="records"></a>
     <div class="row grid-responsive">
       <div class="column clearfix main-pt">
-        <div class="card">
-          <div class="all-btn ">
+        <div>
+          <div class="all-btn">
             <form action="{{ route('admin#import') }}" method="post" enctype="multipart/form-data">
               @csrf
               <input type="file" name="file" placeholder="Title" id="title" class="fileInput" required>
@@ -21,7 +21,7 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>User</th>
+                <th>Name</th>
                 <th>Case</th>
                 <th>Address</th>
 
@@ -32,7 +32,7 @@
               @foreach ($data as $record)
               <tr>
                 <td>{{$loop->index + 1}}</td>
-                <td>{{ $record->user_id }}</td>
+                <td>{{ $record->user_name }}</td>
                 <td>{{ $record->case }}</td>
                 <td>{{ $record->address }}</td>
 

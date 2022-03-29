@@ -13,7 +13,7 @@ class RecordsExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Record::select('user_id', 'case', 'address')->get();
+        return Record::select('user_id', 'user_name', 'case', 'address')->get();
     }
 
     /**
@@ -23,6 +23,6 @@ class RecordsExport implements FromCollection, WithHeadings
      */
     public function headings(): array
     {
-        return ["User_Id", "Case", "Address"];
+        return ["User_Id","User_Name", "Case", "Address"];
     }
 }

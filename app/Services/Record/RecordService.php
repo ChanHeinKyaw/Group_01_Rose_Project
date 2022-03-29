@@ -93,4 +93,15 @@ class RecordService implements RecordServiceInterface
     {
         Excel::import(new RecordsImport, request()->file('file'));
     }
+
+    /**
+     * To get Age and Count Age
+     * 
+     * 
+     * return array
+     */
+    public function getAge()
+    {
+        return $this->recordDao->getAge();
+    }
 }

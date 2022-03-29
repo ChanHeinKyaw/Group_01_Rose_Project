@@ -17,6 +17,7 @@ class RecordsImport implements ToModel, WithHeadingRow
     {
         return new Record([
             'user_id' => $row['user_id'],
+            'user_name' => $row['user_name'],
             'case' => $row['case'],
             'address' => $row['address'],
         ]);
