@@ -15,7 +15,8 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->nullable(); 
+            $table->foreignId('user_id')->references('id')->on('users')->nullable();
+            $table->text('user_name');
             $table->text('case');
             $table->text('address');
             $table->timestamps();

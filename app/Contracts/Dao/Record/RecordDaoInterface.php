@@ -19,4 +19,12 @@ interface RecordDaoInterface
      * procedure
      */
     public function saveRecord();
+
+    /**
+     * To get Age and Count Age
+     * 
+     * 
+     * return array
+     */
+    public function getAge();
 }
