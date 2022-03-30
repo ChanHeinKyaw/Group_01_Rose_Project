@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use App\Contracts\Dao\User\UserDaoInterface;
 
 /**
@@ -14,7 +15,6 @@ use App\Contracts\Dao\User\UserDaoInterface;
  */
 class UserDao implements UserDaoInterface
 {
-
   /**
    * To show all userList data
    * 
@@ -36,8 +36,8 @@ class UserDao implements UserDaoInterface
   public function updateUserRole($id)
   {
     $userList = DB::table('users')
-    ->orderby('id', 'desc')
-    ->get();
+      ->orderby('id', 'desc')
+      ->get();
     return $userList;
   }
 
@@ -83,7 +83,14 @@ class UserDao implements UserDaoInterface
   {
     $user_id = Auth::user()->id;
     $user = User::find($user_id);
+    // to delete old profile
+    if ($user->profile) {
+      if (Storage::exists('public/images/' . $user->profile)) {
+        Storage::delete('public/images/' . $user->profile);
+      }
+    }
 
+    // to update new profile
     if ($request->hasFile('profile')) {
       $filename = $request->profile->getClientOriginalName();
       $request->profile->storeAs('public/images', $filename);
@@ -98,7 +105,7 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 0,
         'address' => $request->address,
         'profile' => $filename,
-        'password' =>Hash::make($request->password),
+        'password' => Hash::make($request->password),
         'updated_at' => now(),
       ]);
     } else {
@@ -141,7 +148,14 @@ class UserDao implements UserDaoInterface
   {
     $user_id = Auth::user()->id;
     $user = User::find($user_id);
+    // to delete old profile
+    if ($user->profile) {
+      if (Storage::exists('public/images/' . $user->profile)) {
+        Storage::delete('public/images/' . $user->profile);
+      }
+    }
 
+    // to update new profile
     if ($request->hasFile('profile')) {
       $filename = $request->profile->getClientOriginalName();
       $request->profile->storeAs('public/images', $filename);
@@ -170,7 +184,7 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 1,
         'address' => $request->address,
         'profile' => $user->profile,
-        'password' =>Hash::make($request->password),
+        'password' => Hash::make($request->password),
         'updated_at' => now(),
       ]);
     }
