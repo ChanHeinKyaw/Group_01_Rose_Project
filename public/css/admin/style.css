@@ -49,6 +49,7 @@ input[type=file] {
 
 .main-pt {
   width: 100%;
+  overflow: auto;
 }
 
 .navbar h1 {

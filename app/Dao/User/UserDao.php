@@ -35,21 +35,9 @@ class UserDao implements UserDaoInterface
    */
   public function updateUserRole($id)
   {
-    $user = User::find($id);
-    if ($user->type == 1) {
-      $user->update([
-        'type' => $user->type = 0,
-      ]);
-    } elseif ($user->type == 0) {
-      $user->update([
-        'type' => $user->type = 1,
-      ]);
-    }
-    $user->save();
-
     $userList = DB::table('users')
-      ->orderby('id', 'desc')
-      ->get();
+    ->orderby('id', 'desc')
+    ->get();
     return $userList;
   }
 
