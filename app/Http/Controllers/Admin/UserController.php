@@ -44,6 +44,14 @@ class UserController extends Controller
    */
   public function updateUserRole($id)
   {
+    $user = User::find($id);
+    if($user->type == 1)
+    {
+      $user->type = 0;
+    } elseif ($user->type == 0 ) {
+      $user->type = 1;
+    }
+    $user->save();
     $userList = $this->userInterface->updateUserRole($id);
     return view('admin-panel.user', compact('userList'))
       ->with('no');

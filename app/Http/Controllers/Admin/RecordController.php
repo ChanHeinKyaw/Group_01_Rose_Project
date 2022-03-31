@@ -89,16 +89,28 @@ class RecordController extends Controller
         return back();
     }
 
+    /**
+     * To show graph view
+     * 
+     * 
+     * @return view previous page
+     */
     public function graphView()
     {
         return view('admin-panel.graph');
     }
 
+    /**
+     * To get Age and Count Age
+     * 
+     * 
+     * return array
+     */
     public function graph()
     {
 
-        $allDataCount = Record::all();
-        $dataone = DB::table('records')->join('users', 'records.user_id', 'users.id')->select('users.age as user_age', DB::raw('COUNT(users.age) as count_user_age'))->groupBy('user_age')->having('user_age', '>' , '1')->get();
+        $allDataCount = $this->recordService->getAllRecord();
+        $dataone = $this->recordService->getAge();
 
         return [count($allDataCount), $dataone];
     }

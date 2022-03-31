@@ -37,12 +37,23 @@ class ContactDao implements ContactDaoInterface
     return 'Deleted Successfully!';
   }
 
+  /**
+   * To get contact by ID
+   * 
+   * @return array contact user by ID
+  */
   public function getContactById($id)
   {
     $contact = Contact::find($id);
     return $contact;
   }
 
+
+  /**
+   * To store contact by ID
+   * 
+   * @return array contact user data
+  */
   public function storeContactForm(Request $request)
   {
 
@@ -64,6 +75,11 @@ class ContactDao implements ContactDaoInterface
     return $contact;
   }
 
+  /**
+   * To search contact by query
+   * 
+   * @return array search result
+  */
   public function searchContact(Request $request)
   {
     $search_text = $request->get('query');

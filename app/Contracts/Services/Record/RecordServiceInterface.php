@@ -41,4 +41,12 @@ interface RecordServiceInterface
      * procedure
      */
     public function import();
+
+    /**
+     * To get Age and Count Age
+     * 
+     * 
+     * return array
+     */
+    public function getAge();
 }

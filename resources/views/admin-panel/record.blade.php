@@ -20,7 +20,7 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>User</th>
+                <th>Name</th>
                 <th>Case</th>
                 <th>Address</th>
 
@@ -31,7 +31,7 @@
               @foreach ($data as $record)
               <tr>
                 <td>{{$loop->index + 1}}</td>
-                <td>{{ $record->user_id }}</td>
+                <td>{{ $record->user_name }}</td>
                 <td>{{ $record->case }}</td>
                 <td>{{ $record->address }}</td>
 
