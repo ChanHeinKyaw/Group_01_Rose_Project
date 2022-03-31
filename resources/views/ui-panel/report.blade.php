@@ -1,5 +1,6 @@
 @extends('layouts.ui-app')
 @section('title', 'နှင်းဆီ🌹')
+@section('report-active','navbar-active')
 @section('content')
   <div class="blank-space"></div>
 

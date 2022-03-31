@@ -45,10 +45,10 @@
           @if (Auth::user()->type == 1)
           <li class="item"><a href="{{ url('/admin/dashboard') }}">စီမံခန့်ခွဲသူ</a></li>
           @endif
-          <li class="item navbar-active"><a href="/">ပင်မစာမျက်နှာ</a></li>
-          <li class="item"><a href="{{ url('/report') }}">တိုင်ကြားရန်</a></li>
-          <li class="item"><a href="{{ url('/contact') }}">ဆက်သွယ်ရန်</a></li>
-          <li class="item"><a href="{{ url('/about') }}">ကျွန်ုပ်တို့အကြောင်း</a></li>
+          <li class="item @yield('home-active')"><a href="/">ပင်မစာမျက်နှာ</a></li>
+          <li class="item @yield('report-active')"><a href="{{ url('/report') }}">တိုင်ကြားရန်</a></li>
+          <li class="item @yield('contact-active')"><a href="{{ url('/contact') }}">ဆက်သွယ်ရန်</a></li>
+          <li class="item @yield('about-active')"><a href="{{ url('/about') }}">ကျွန်ုပ်တို့အကြောင်း</a></li>
           <li class="item has-submenu dropdown">
             <a tabindex="0" class="dropbtn" id="toggle-btn">ကိုယ်ရေးအကျဉ်း</a>
             <div class="dropdown-content">

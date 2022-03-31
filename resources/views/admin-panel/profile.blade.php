@@ -12,12 +12,11 @@
             @if(Auth::user()->profile)
             <img class="img-profile" src="{{ asset('storage/images/'.Auth::user()->profile ) }}" alt="" height="200px">
             @elseif ( Auth::user()->profile == null )
-            <img src=" {{ asset('image/user.png') }}" alt="" title="" height="200px">
+            <img src="{{ asset('image/user.png') }}" alt="" title="" height="200px">
             @endif            
             <input type="file" name="profile" id="profile" style="display: none;" /><br>
             <label for="profile" class="img-btn" >ပုံအသစ်တင်မည်</label>
           </div>
-
           <div class="right-blk">
 
             <label for="">Name</label>

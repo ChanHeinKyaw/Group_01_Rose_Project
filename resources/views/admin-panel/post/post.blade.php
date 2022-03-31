@@ -28,7 +28,7 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $post->title }}</td>
-                <td>{{ substr($post->description,0,100) }}.....</td>
+                <td>{{ $post->description }}</td>
                 <td><img src="{{ asset('storage/post/'.$post->img)}}" width="100px"></td>
                 <td class="clearfix"><a href="{{ route('post.edit',$post->id)}}" class="edit" >Edit</a>
                     <form action="{{ route('post.destroy', $post->id)}}" method="post" class="delete-form">
