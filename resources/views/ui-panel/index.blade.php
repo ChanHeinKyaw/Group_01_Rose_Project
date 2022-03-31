@@ -1,5 +1,6 @@
 @extends('layouts.ui-app')
 @section('title', 'Rose | Home Page')
+@section('home-active','navbar-active')
 @section('content')
   @if (session('status'))
     <div class="alert">

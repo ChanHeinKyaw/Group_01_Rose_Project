@@ -8,8 +8,6 @@
           <h1>Important!</h1>
           <p class="text-large">That is admin DashBoard.Users call Ememgency call to be carefully.Look always
             every time.Because Helper.</p>
-          <p>You could call.Send email.</p>
-          <a class="button">Call Users</a>
         </div>
       </div>
     </div>

@@ -25,23 +25,20 @@
 .cr-post {
   margin-top: 20px;
   float: right;
-  margin-right: 35px;
+  margin-right: 45px;
 }
+
 .pprofile {
     width: 20%;
     float:right;
 }
 .all-btn {
-  width: 40%;
+  width: 100%;
   float: right;
-  padding: 30px 30px 0 0;
+  padding: 5% 3% 0%;
 }
 
 .all-btn .import {}
-
-input[type=file] {
-  color: transparent;
-}
 
 .search-i {
   width: 50px;
@@ -49,6 +46,7 @@ input[type=file] {
 
 .main-pt {
   width: 100%;
+  overflow-x: scroll;
 }
 
 .navbar h1 {
@@ -176,8 +174,9 @@ textarea {
 
 .user-form {
   width: 40%;
-  float: right;
-  margin-top: 20px;
+  float: left;
+  margin-top: 3%;
+  margin-left: 3%;
 }
 
 .profile .left-blk {
@@ -708,7 +707,7 @@ select:focus {
 .user-section img {
   margin-right: 10px;
   float: left;
-  margin-top: 5px;
+  margin-top: 0px;
   border-radius: 10px;
 }
 
