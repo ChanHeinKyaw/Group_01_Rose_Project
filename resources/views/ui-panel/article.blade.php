@@ -40,10 +40,10 @@
 
             @if ($comment->user->profile)
               <img src="{{ asset('storage/images/' . $comment->user->profile) }}" alt="" class="img-profile">
-            @elseif($comment->user->profile)
+            @elseif($comment->user->profile == null)
               <img src="{{ asset('image/user.png') }}" alt="" title="" class="img-profile">
             @endif
-          
+
             <strong class="name">{{ $comment->user->name }}</strong><br>
 
             <div class="message-box">
@@ -71,7 +71,7 @@
           },
           success: function(res) {
             $cmt_txt =
-              '<img src="{{ asset('storage/post/' . $post->img) }}" alt=""><strong class="name">{{ auth()->user()->name }}</strong><br><div class="message-box">' +
+              '<img src="{{ asset('image/user.png') }}" alt=""><strong class="name">{{ auth()->user()->name }}</strong><br><div class="message-box">' +
               cmt_value + '</div><br>';
             $('#comment-box').prepend($cmt_txt);
             $("#comment").val("");
