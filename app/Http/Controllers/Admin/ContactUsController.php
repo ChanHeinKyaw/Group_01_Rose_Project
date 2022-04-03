@@ -49,7 +49,7 @@ class ContactUsController extends Controller
             'message' => $contact['message'],
         ), function ($message) use ($request) {
             $message->from($request->email);
-            $message->to('htaylail.hcis@gmail.com', 'Admin')->subject("Contact Mail to Admin");
+            $message->to('admin@gmail.com', 'Admin')->subject("Contact Mail to Admin");
         });
         return redirect()->back()->with(['success' => 'Contact Form is Submit Successfully']);
     }
