@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'အီးမေလ် (သို့) စကားဝှက် မှားယွင်းနေပါသည်',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

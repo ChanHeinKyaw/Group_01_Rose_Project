@@ -35,7 +35,7 @@
 .all-btn {
   width: 100%;
   float: right;
-  padding: 5% 3% 0%;
+  padding: 5% 4% 0% 3%;
 }
 
 .all-btn .import {}
@@ -122,6 +122,7 @@
 
 .main-pt td {
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 .fileInput {
