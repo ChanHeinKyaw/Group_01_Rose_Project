@@ -15,8 +15,8 @@
       <div class="inner-form">
         <form action="{{ route('report') }}" method="post">
           @csrf
-          <input type="text" name="case" id="" placeholder="တိုင်ကြားမည့်အကြောင်းအရာ" autofocus="autofocus">
-          <input type="text" name="address" id="" placeholder="ဖြစ်ပွားသည့်နေရာ">
+          <input class="report-input" type="text" name="case" id="" placeholder="တိုင်ကြားမည့်အကြောင်းအရာ" autofocus="autofocus">
+          <input class="report-input" type="text" name="address" id="" placeholder="ဖြစ်ပွားသည့်နေရာ">
 
 
           <button type="button" class="label-btn" id="showFormTwo">တိုင်ကြားမည်</button>

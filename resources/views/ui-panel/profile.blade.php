@@ -14,7 +14,7 @@
 
     <div class="inner-form profile-card">
 
-      <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" >
+      <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="profile-form" >
         @csrf
         <div class="img-profile-div">
           @if($user->profile)
@@ -25,16 +25,24 @@
         </div>
         <input type="file" name="profile" id="profile" class="disable file-img" disabled /><br>
         <label for="profile" class="label-btn">ပုံအသစ်တင်မည်</label><br>
-        <input type="text" name="name" id="" placeholder="အမည်" class="profile-input disable" disabled value="{{ $user->name }}" require>
-        <input type="email" name="email" id="" placeholder="အီးမေးလ်" class="profile-input disable" disabled value="{{ $user->email }}" require>
-        <input type="phone" name="phone" id="" placeholder="ဖုန်းနံပါတ်" class="profile-input disable" disabled value="{{ $user->phone }}" require>
-        <input type="number" min="1" max="120" name="age" id="" placeholder="အသက်" class="profile-input disable" disabled value="{{ $user->age }}" require>
-        <input type="text" name="address" id="" placeholder="နေရပ်လိပ်စာ" class="profile-input disable" disabled value="{{ $user->address }}" require>
+
+        <label for="">အမည်</label>
+        <input type="text" name="name" id="" placeholder="အမည်" class="profile-input disable" disabled value="{{ $user->name }}" require><br>
+        <label for="">အီးမေးလ်</label>
+        <input type="email" name="email" id="" placeholder="အီးမေးလ်" class="profile-input disable" disabled value="{{ $user->email }}" require><br>
+        <label for="">ဖုန်းနံပါတ်</label>
+        <input type="phone" name="phone" id="" placeholder="ဖုန်းနံပါတ်" class="profile-input disable" disabled value="{{ $user->phone }}" require><br>
+        <label for="">အသက်</label>
+        <input type="number" min="1" max="120" name="age" id="" placeholder="အသက်" class="profile-input disable" disabled value="{{ $user->age }}" require><br>
+        <label for="">နေရပ်လိပ်စာ</label>
+        <input type="text" name="address" id="" placeholder="နေရပ်လိပ်စာ" class="profile-input disable" disabled value="{{ $user->address }}" require><br>
+        <label for="">ကျား/မ</label>
         <select id="gender" required name="gender" class="select-option-gender disable" disabled>
           <option {{ ($user->gender) == 'female' ? 'selected' : '' }} value="female">မ</option>
           <option {{ ($user->gender) == 'male' ? 'selected' : '' }} value="male">ကျား</option>
-        </select>
-        <select id="defender" required name="defender" class="select-option-gender disable" disabled>
+        </select><br>
+        <label for="">နှင်းဆီ</label>
+        <select id="defender" required name="defender" class="select-option-gender disable" disabled><br>
           <option {{ ($user->defender) == '1' ? 'selected' : '' }} value="1">နှင်းဆီ Defender</option>
           <option {{ ($user->defender) == '0' ? 'selected' : '' }} value="0">နှင်းဆီ</option>
         </select><br>

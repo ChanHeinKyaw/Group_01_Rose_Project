@@ -169,7 +169,7 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 1,
         'address' => $request->address,
         'profile' => $filename,
-        'password' => Hash::make($request->password),
+        'password' => $user->password,
         'updated_at' => now(),
       ]);
     } else {
@@ -183,11 +183,11 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 1,
         'address' => $request->address,
         'profile' => $user->profile,
-        'password' => Hash::make($request->password),
+        'password' => $user->password,
         'updated_at' => now(),
       ]);
     }
-    $user->save();
+    // $user->save();
     return $user;
   }
 
@@ -210,12 +210,12 @@ class UserDao implements UserDaoInterface
   {
     if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
         // The passwords matches
-        return redirect()->back()->with("error","Your current password does not matches with the password.");
+        return redirect()->back()->with("error","လက်ရှိ စကားဝှက် မှားနေပါသည်။");
     }
 
     if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
         // Current password and new password same
-        return redirect()->back()->with("error","New Password cannot be same as your current password.");
+        return redirect()->back()->with("error","စကားဝှက် အသစ်နှင့် အဟောင်းတူနေပါသည်။ မတူအောင်ရေးပါ။ ");
     }
 
     $request->validate([
@@ -228,7 +228,7 @@ class UserDao implements UserDaoInterface
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
    
-    return  redirect()->route('logout')->with("success","Password successfully changed!");
+    return  redirect()->route('logout')->with("success","စကားဝှက် အတည်ပြုခြင်း အောင်မြင်ပါသည်");
   }
 
 
@@ -254,12 +254,12 @@ class UserDao implements UserDaoInterface
     
     if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
       // The passwords matches
-      return redirect()->back()->with("error","Your current password does not matches with the password.");
+      return redirect()->back()->with("error","လက်ရှိ စကားဝှက် မှားနေပါသည်။");
     }
 
     if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
       // Current password and new password same
-      return redirect()->back()->with("error","New Password cannot be same as your current password.");
+      return redirect()->back()->with("error","စကားဝှက် အသစ်နှင့် အဟောင်းတူနေပါသည်။ မတူအောင်ရေးပါ။ ");
     }
 
     $request->validate([

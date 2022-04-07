@@ -51,7 +51,7 @@ class ContactUsController extends Controller
             $message->from($request->email);
             $message->to('admin@gmail.com', 'Admin')->subject("Contact Mail to Admin");
         });
-        return redirect()->back()->with(['success' => 'Contact Form is Submit Successfully']);
+        return redirect()->back()->with(['success' => 'ဆက်သွယ်ခြင်း အောင်မြင်ပါသည်']);
     }
 
     /**

@@ -42,7 +42,7 @@
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-.profile-input  {
+.profile-input {
     text-align: center;
     height: 60px;
     border: none;
@@ -52,6 +52,7 @@
     width: 300px;
     margin-bottom: 10px;
 }
+
 
 
 @media screen and (max-width:767.9px) {
