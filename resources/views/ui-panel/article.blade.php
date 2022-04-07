@@ -6,7 +6,7 @@
   <div class="blog-sec p-top">
     <div class="article-div inner-container">
       <div class="center">
-        <h3 class="article-h3">"သုတစာစဉ်မျာ"</h3>
+        <h3 class="article-h3">{{ $post->title }}</h3>
       </div>
 
       <div class="article-blog-img">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="article-div inner-container">
-      <i class="far fa-heart like {{ $post->likes->contains('user_id', auth()->id()) ? 'disable' : '' }}"
+      <i class="far fa-heart like {{ $post->likes->contains('user_id', auth()->id()) ? 'like_disable' : '' }}"
         data-id={{ $post->id }}>{{ $post->likes->count() }}</i>
       <a href="#" onclick="togglePopup()" class="comment"><i class="far fa-comment"></i> comment</a>
     </div>

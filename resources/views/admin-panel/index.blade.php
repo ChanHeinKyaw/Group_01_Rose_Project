@@ -11,6 +11,6 @@
         </div>
       </div>
     </div>
-    <p class="credit">SCM OJT Batch 2 group I<a href="#">Group I</a></p>
+    <p class="credit">SCM OJT Batch 2 <a href="#">Group I</a></p>
   </section>
 @endsection
