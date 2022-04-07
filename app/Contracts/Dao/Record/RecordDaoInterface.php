@@ -27,4 +27,12 @@ interface RecordDaoInterface
      * return array
      */
     public function getAge();
+
+    /**
+     * To User type = defender
+     * 
+     * 
+     * return array
+     */
+    public function getUserDefender();
 }
