@@ -89,4 +89,44 @@ class UserService implements UserServiceInterface
   {
     return $this->userDao->updateAdminProfile($request);
   }
+
+
+  /**
+   * To change user password
+   * @return Object $user
+  */
+  public function changeUserPassword()
+  {
+    return $this->userDao->changeUserPassword();
+  }
+
+
+  /**
+   * To update user passowrd
+   * @return Object $user update password data
+  */
+  public function updateUserPassword(Request $request)
+  {
+    return $this->userDao->updateUserPassword($request);
+  }
+
+  /**
+   * To change admin password
+   * @return Object $admin 
+  */
+  public function changeAdminPassword()
+  {
+    return $this->userDao->changeAdminPassword();
+  }
+
+
+  /**
+   * To update admin passowrd
+   * @return Object $admin update password data
+  */
+  public function updateAdminPassword(Request $request)
+  {
+    return $this->userDao->updateAdminPassword($request);
+  }
+ 
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Contracts\Dao\User\UserDaoInterface;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * Data accessing object for post
@@ -191,4 +192,88 @@ class UserDao implements UserDaoInterface
     $user->save();
     return $user;
   }
+
+  /**
+   * To change  userPassowrd
+   * 
+   * @return object $user 
+   */
+  public function changeUserPassword()
+  {
+    $user = Auth::user();
+    return $user;
+  }
+
+  /**
+   * To user updateUserPassword data
+   * @return Object $user update password data
+  */
+  public function updateUserPassword(Request $request)
+  {
+    if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+        // The passwords matches
+        return redirect()->back()->with("error","Your current password does not matches with the password.");
+    }
+
+    if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+        // Current password and new password same
+        return redirect()->back()->with("error","New Password cannot be same as your current password.");
+    }
+
+    $request->validate([
+        'current-password' => 'required',
+        'new-password' => 'required|string|min:4|confirmed',
+    ]);
+
+    //Change Password
+    $user = Auth::user();
+    $user->password = bcrypt($request->get('new-password'));
+    $user->save();
+   
+    return  redirect()->back()->with("success","Password successfully changed!");
+  }
+
+
+  /**
+   * To change  adminPassowrd
+   * 
+   * @return object $user 
+   */
+  public function changeAdminPassword()
+  {
+    $user = Auth::user();
+    return $user;
+  }
+
+
+  /**
+   * To update updateAdminPassword data
+   * 
+   * @return object $user 
+   */
+  public function updateAdminPassword(Request $request)
+  {
+    
+    if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+      // The passwords matches
+      return redirect()->back()->with("error","Your current password does not matches with the password.");
+    }
+
+    if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+      // Current password and new password same
+      return redirect()->back()->with("error","New Password cannot be same as your current password.");
+    }
+
+    $request->validate([
+      'current-password' => 'required',
+      'new-password' => 'required|string|min:4|confirmed',
+    ]);
+
+    //Change Password
+    $user = Auth::user();
+    $user->password = bcrypt($request->get('new-password'));
+    $user->save();
+    
+    return  redirect()->back()->with("success","Password successfully changed!");
+  } 
 }

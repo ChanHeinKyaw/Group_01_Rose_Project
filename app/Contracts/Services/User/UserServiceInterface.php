@@ -57,4 +57,35 @@ interface UserServiceInterface
    * @return Object $user adminProfile Object
    */
   public function updateAdminProfile(Request $request);
+
+  /**
+   * To change  userPassowrd
+   * 
+   * @return object $user 
+  */
+  public function changeUserPassword();
+
+  /**
+   * To update  userPassowrd
+   * 
+   * @return object $user update password 
+  */
+  public function updateUserPassword(Request $request);
+  
+  /**
+   * To change  AdminPassowrd
+   * 
+   * @return object $user 
+   */
+  public function changeAdminPassword();
+
+
+  
+  /**
+   * To update  adminPassowrd
+   * 
+   * @return object $admin update password 
+  */
+  public function updateAdminPassword(Request $request);
+
 }

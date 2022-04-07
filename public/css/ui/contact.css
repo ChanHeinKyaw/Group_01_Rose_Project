@@ -74,7 +74,7 @@
     background: #f8f8f8;
     text-align: left;
     outline: none;
-    font-size:16px;
+    font-size: 16px;
   }
 
   .contact-form textarea {
@@ -91,6 +91,7 @@
     text-align: center;
     outline: none;
     transition: 0.3s;
+    border: 2px solid transparent;
   }
 
   .btn:hover {
@@ -108,9 +109,10 @@
     height: 500px;
   }
 
-  .text-danger{
+  .text-danger {
     color: hsl(0, 88%, 55%);
   }
+
   .text-success {
     color: #7f5fb7;
     text-align: center;

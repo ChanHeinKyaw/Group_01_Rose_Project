@@ -1,11 +1,19 @@
 .img-profile-div {
     text-align: center;
 }
-
+.file-img {
+    padding: 20px;
+    margin-left: 80px;
+}
+.profile-card {
+    max-width: 600px;
+}
 .img-profile {
     width: 200px;
-    height:200px;
+    height: 200px;
     margin-bottom: 10px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .select-option-gender {
@@ -43,4 +51,11 @@
     font-weight: 200;
     width: 300px;
     margin-bottom: 10px;
+}
+
+
+@media screen and (max-width:767.9px) {
+    .profile-card {
+        max-width: 62.500vw;
+    }
 }

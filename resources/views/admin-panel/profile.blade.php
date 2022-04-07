@@ -14,7 +14,8 @@
             @elseif ( Auth::user()->profile == null )
             <img src="{{ asset('image/user.png') }}" alt="" title="" height="200px">
             @endif            
-            <input type="file" name="profile" id="profile" style="display: none;" /><br>
+            <!-- <input type="file" name="profile" id="profile" style="display: none;" /><br> -->
+            <input type="file" name="profile" id="profile"/>
             <label for="profile" class="img-btn" >ပုံအသစ်တင်မည်</label>
           </div>
           <div class="right-blk">
@@ -43,7 +44,7 @@
             </select><br>
           
 
-            <button type="button"><a href="/admin/dashboard">Back</a></button>
+            <button type="button"><a href="/admin/dashboard" class="back-btn">Back</a></button>
             <button type="submit">Update</button>
 
 

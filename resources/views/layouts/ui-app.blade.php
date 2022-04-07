@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('css/ui/profile.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/ui/contact.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/ui/about.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ui/password.css') }}" />
 </head>
 
 <body>
@@ -57,10 +58,19 @@
               @elseif (Auth::user()->type == 1)
               <a href="{{ url('/admin/profile') }}">ကိုယ်ရေးအကျဉ်းကြည့်မည်</a>
               @endif
+
+              @if (Auth::user()->type == 0 )
+              <a href="{{ url('/change-password') }}">စကားဝှက်ပြောင်းမည်</a>
+              @elseif (Auth::user()->type == 1)
+              <a href="{{ url('/admin/change-password') }}">စကားဝှက်ပြောင်းမည်</a>
+              @endif
+            
+
               <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                document.getElementById('logout-form').submit();">
                 အကောင့်ထွက်မည်
               </a>
+            
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

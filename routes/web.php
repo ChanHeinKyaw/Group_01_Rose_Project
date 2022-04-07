@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [PageController::class, 'contact']);
     Route::get('/about', [PageController::class, 'about']);
     Route::get('/profile', [PageController::class, 'profile']);
+    
 
     Route::get('/post/{id}/detail', [PageController::class, 'postDetail']);
     Route::get('like/{id}', "LikeController@like");
@@ -50,6 +51,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [UserController::class, 'userProfile']);
     Route::post('/profile', [UserController::class, 'updateUserProfile'])->name('profile.update');
+   
+    Route::get('/change-password', [UserController::class, 'changeUserPassword']);
+    Route::post('/change-password', [UserController::class, 'updateUserPassword'])->name('user-password.update');
+
 });
 
 
@@ -85,4 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/search', [UserController::class, 'searchUser'])->name('user.search');
     Route::get('/admin/profile', [UserController::class, 'adminProfile']);
     Route::post('/admin/profile', [UserController::class, 'updateAdminProfile'])->name('admin-profile.update');
+    
+    Route::get('/change-password', [UserController::class, 'changeAdminPassword']);
+    Route::post('/change-password', [UserController::class, 'updateAdminPassword'])->name('admin-password.update');
 });

@@ -12,9 +12,9 @@
       </h2>
     </div>
 
-    <div class="inner-form">
+    <div class="inner-form profile-card">
 
-      <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" >
         @csrf
         <div class="img-profile-div">
           @if($user->profile)
@@ -23,9 +23,8 @@
           <img src=" {{ asset('image/user.png') }}" alt="" title="" class="img-profile">
           @endif
         </div>
-
-        <input type="file" name="profile" id="profile" style="display: none;" class="disable" disabled />
-        <label for="profile" class="label-btn">ပုံအသစ်တင်မည်</label>
+        <input type="file" name="profile" id="profile" class="disable file-img" disabled /><br>
+        <label for="profile" class="label-btn">ပုံအသစ်တင်မည်</label><br>
         <input type="text" name="name" id="" placeholder="အမည်" class="profile-input disable" disabled value="{{ $user->name }}" require>
         <input type="email" name="email" id="" placeholder="အီးမေးလ်" class="profile-input disable" disabled value="{{ $user->email }}" require>
         <input type="phone" name="phone" id="" placeholder="ဖုန်းနံပါတ်" class="profile-input disable" disabled value="{{ $user->phone }}" require>
@@ -39,7 +38,7 @@
         <select id="defender" required name="defender" class="select-option-gender disable" disabled>
           <option {{ ($user->defender) == '1' ? 'selected' : '' }} value="1">နှင်းဆီ Defender</option>
           <option {{ ($user->defender) == '0' ? 'selected' : '' }} value="0">နှင်းဆီ</option>
-        </select>
+        </select><br>
 
         <button type="button" id="edit-btn">ပြင်ဆင်မည်</button>
         <input type="submit" value="အသစ်တင်မည်" class="disable" disabled>

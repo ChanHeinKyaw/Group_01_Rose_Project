@@ -7,9 +7,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Contracts\Services\User\UserServiceInterface;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Contracts\Services\User\UserServiceInterface;
 
 
 
@@ -45,10 +46,9 @@ class UserController extends Controller
   public function updateUserRole($id)
   {
     $user = User::find($id);
-    if($user->type == 1)
-    {
+    if ($user->type == 1) {
       $user->type = 0;
-    } elseif ($user->type == 0 ) {
+    } elseif ($user->type == 0) {
       $user->type = 1;
     }
     $user->save();
@@ -92,6 +92,25 @@ class UserController extends Controller
   }
 
   /**
+   * To get userProfile data
+   * 
+   * @return object $user 
+   */
+  public function changeUserPassword()
+  {
+    $this->userInterface->changeUserPassword();
+    return view('ui-panel.change-password');
+  }
+
+
+  public function updateUserPassword(Request $request)
+  {
+    $this->userInterface->updateUserPassword($request);
+    return  redirect()->back();
+  }
+
+
+  /**
    * To get adminProfile data
    * 
    * @return object $user 
@@ -112,4 +131,26 @@ class UserController extends Controller
     $this->userInterface->updateAdminProfile($request);
     return redirect('admin/profile');
   }
+
+  /**
+   * To get userProfile data
+   * 
+   * @return object $user 
+   */
+  public function changeAdminPassword()
+  {
+    $this->userInterface->changeUserPassword();
+    return view('admin-panel.change-password');
+  }
+
+  /**
+   * To update updateAdminPassword data
+   * 
+   * @return object $user 
+   */
+  public function updateAdminPassword(Request $request)
+  {    
+    $this->userInterface->updateAdminPassword($request);
+    return  redirect()->back();
+  } 
 }

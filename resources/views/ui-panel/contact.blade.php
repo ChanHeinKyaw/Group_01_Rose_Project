@@ -14,10 +14,10 @@
         <div class="contact-info">
           <h3 class="contact-ttl">ဆက်သွယ်ရန် လိပ်စာ</h3>
           <ul class="info-item">
-            <li><a href="#"><span class="contact-icon phone"></span>၀၉-၇၉၇၇၇၇၂၂၂ <br> ၀၉-၉၉၉၉၉၉၁၁၁</a></li>
-            <li><a href="#"><span class="contact-icon email"></span>admin@gmail.com</a></li>
-            <li><a href="#"><span class="contact-icon home"></span>အမှတ်(၈၈/၉၀)၊ ၄လွှာ၊ ၅၁လမ်း၊ <br>အလယ်ဘလောက်၊
-                ပုဇွန်တောင်မြို့နယ်၊ ရန်ကုန်မြို့။</a></li>
+            <li><a href="tel:0979777222"><span class="contact-icon phone"></span>၀၉-၇၉၇၇၇၇၂၂၂ <br> ၀၉-၉၉၉၉၉၉၁၁၁</a></li>
+            <li><a href="mailto: abc@example.com"><span class="contact-icon email"></span>admin@gmail.com</a></li>
+            <li><p><span class="contact-icon home"></span>အမှတ်(၈၈/၉၀)၊ ၄လွှာ၊ ၅၁လမ်း၊ <br>အလယ်ဘလောက်၊
+                ပုဇွန်တောင်မြို့နယ်၊ ရန်ကုန်မြို့။</p></li>
           </ul>
         </div> 
         

@@ -54,4 +54,26 @@ interface UserDaoInterface
    * @return Object $user adminProfile Object
    */
   public function updateAdminProfile(Request $request);
+
+
+  /**
+   * To change  userPassowrd
+   * 
+   * @return object $user 
+   */
+  public function changeUserPassword();
+  
+  public function updateUserPassword(Request $request);
+  
+  /**
+   * To change  AdminPassowrd
+   * 
+   * @return object $user 
+   */
+  public function changeAdminPassword();
+
+  public function updateAdminPassword(Request $request);
+
+ 
+
 }
