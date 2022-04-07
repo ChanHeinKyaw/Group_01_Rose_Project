@@ -28,9 +28,10 @@
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $post->title }}</td>
-                <td>{{ $post->description }}</td>
+                <td>{{Str::limit($post->name, 20)}}</td>
+                {{--<td>{{ $post->description }}</td>--}}
                 <td><img src="{{ asset('storage/post/'.$post->img)}}" width="100px"></td>
-                <td class="clearfix"><a href="{{ route('post.edit',$post->id)}}" class="edit" >Edit</a>
+                <td class="clearfix"><a href="{{ route('post.show',$post->id)}}" class="seemore" >See More...</a><a href="{{ route('post.edit',$post->id)}}" class="edit" >Edit</a>
                     <form action="{{ route('post.destroy', $post->id)}}" method="post" class="delete-form">
                     {{ csrf_field() }}
                     @method('DELETE')
