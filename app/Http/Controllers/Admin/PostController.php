@@ -24,8 +24,8 @@ class PostController extends Controller
         return view('admin-panel.post.post',['posts' => $posts]);
     }
     public function show(Post $post){
-        //$posts=DB::table('posts')->where('title', 'aa' )->get();
-        $posts =Post::where('id','=',$post->id )->first();
+        $posts = $this->postService->seemore( $post);
+        //$posts =Post::where('id','=',$post->id )->first();
         return view('admin-panel.post.post-show',['posts' => $posts]);
     }
      public function create()

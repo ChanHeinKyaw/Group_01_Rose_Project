@@ -30,4 +30,7 @@ class PostService implements PostServiceInterface {
     public function delete($post){
         return $this->postDao->delete($post);
     }
+     public function seemore($post){
+        return $this->postDao->seemore($post);
+    }
 }
