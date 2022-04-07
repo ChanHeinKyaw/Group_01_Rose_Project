@@ -110,7 +110,7 @@ h1 {
   padding-left: 5%;
 }
 
-.disable{
+.like_disable{
   color: red;
 }
 
@@ -329,7 +329,7 @@ footer {
 
 .article {
   background: white;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   text-align: center;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);

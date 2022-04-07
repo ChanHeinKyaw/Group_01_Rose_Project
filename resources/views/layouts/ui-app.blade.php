@@ -52,11 +52,7 @@
           <li class="item has-submenu dropdown">
             <a tabindex="0" class="dropbtn" id="toggle-btn">ကိုယ်ရေးအကျဉ်း</a>
             <div class="dropdown-content">
-              @if (Auth::user()->type == 0 )
               <a href="{{ url('/profile') }}">ကိုယ်ရေးအကျဉ်းကြည့်မည်</a>
-              @elseif (Auth::user()->type == 1)
-              <a href="{{ url('/admin/profile') }}">ကိုယ်ရေးအကျဉ်းကြည့်မည်</a>
-              @endif
               <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                document.getElementById('logout-form').submit();">
                 အကောင့်ထွက်မည်

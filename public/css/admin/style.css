@@ -16,6 +16,11 @@
   padding: 0.6rem 1rem;
 }
 
+
+.grid-responsive{
+  margin-bottom: 30px;
+}
+
 .cr-posts {
   margin-top: 0px;
   float: right;
@@ -23,7 +28,7 @@
 }
 
 .cr-post {
-  margin-top: 20px;
+  margin-top: 3%;
   float: right;
   margin-right: 45px;
 }
@@ -35,7 +40,7 @@
 .all-btn {
   width: 100%;
   float: right;
-  padding: 5% 4% 0% 3%;
+  padding: 3% 4% 0% 3%;
 }
 
 .all-btn .import {}
@@ -61,7 +66,7 @@
   font-size: 1.15rem;
   background-color: #008000;
   margin-right: 15px;
-  color: #000;
+  color: #FFF;
 
   float:left;
 }
@@ -95,7 +100,7 @@
   border-radius: 499rem;
   font-size: 1.15rem;
   margin-right: 15px;
-  color: #000;
+  color: #FFF;
 }
 
 @font-face {
@@ -338,8 +343,7 @@ a.anchor {
 
 .credit {
   text-align: center;
-  margin-top: 30px;
-  color: #666;
+  color: #FFF;
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
@@ -694,6 +698,7 @@ select:focus {
   padding: 30px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
   margin-bottom: 2.2rem;
+  height: 58vh;
 }
 
 .user-section {

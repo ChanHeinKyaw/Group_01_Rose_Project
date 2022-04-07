@@ -93,10 +93,10 @@ $(document).ready(function () {
             url: `/like/${id}`,
             success: function (res) {
                 $('.like').text(res.likes)
-                if ($('.like').hasClass('disable')) {
-                    $('.like').removeClass('disable');
+                if ($('.like').hasClass('like_disable')) {
+                    $('.like').removeClass('like_disable');
                 } else {
-                    $('.like').addClass('disable');
+                    $('.like').addClass('like_disable');
                 }
             }
         })
