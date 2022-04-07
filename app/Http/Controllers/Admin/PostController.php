@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\PostServiceInterface;
 
@@ -22,8 +23,12 @@ class PostController extends Controller
         $posts = $this->postService->getAll();
         return view('admin-panel.post.post',['posts' => $posts]);
     }
-
-    public function create()
+    public function show(Post $post){
+        //$posts=DB::table('posts')->where('title', 'aa' )->get();
+        $posts =Post::where('id','=',$post->id )->first();
+        return view('admin-panel.post.post-show',['posts' => $posts]);
+    }
+     public function create()
     {
         return view('admin-panel.post.post-create');
     }
@@ -33,7 +38,7 @@ class PostController extends Controller
         $this->postService->create($request);
         return redirect()->route('post.index')->with("success", "Post Create successfully");
     }
-    
+
     public function edit(Post $post)
     {
         return view('admin-panel.post.post-edit', compact('post'));
