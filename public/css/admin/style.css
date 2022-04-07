@@ -84,16 +84,28 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 15%;
+    width: 20;
+    margin-top: 50px;
 }
 .seedes {
     width: 50%;
 }
+.seeleft {
+    width: 30%;
+    float: left;
+}
+
+.seeright {
+    width: 70%;
+    float: right;
+}
 .seebody {
     width: 90%;
     margin: 30px 50px;
+
 }
 .seemain {
+    margin-top: 30px;
     width:60%;
     margin-left: auto;
     margin-right: auto;
@@ -112,6 +124,10 @@
   margin-right: 15px;
   color: #FFF;
   float:left;
+}
+.back {
+    margin-top: 20px;
+    display: block;
 }
 .seemore {
     padding: 9px 30px;

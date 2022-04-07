@@ -65,4 +65,7 @@ class PostDao implements PostDaoInterface{
     public function delete($post){
         return $post->delete();
     }
+    public function seemore($post){
+        return  $this->model->where('id','=',$post->id )->first();
+    }
 }
