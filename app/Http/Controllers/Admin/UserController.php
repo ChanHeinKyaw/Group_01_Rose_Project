@@ -48,6 +48,12 @@ class UserController extends Controller
     $user = User::find($id);
     if ($user->type == 1) {
       $user->type = 0;
+
+      $user->save();
+
+      $userList = $this->userInterface->updateUserRole($id);
+
+      return redirect('/');
     } elseif ($user->type == 0) {
       $user->type = 1;
     }
