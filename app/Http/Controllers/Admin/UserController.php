@@ -52,6 +52,7 @@ class UserController extends Controller
       $user->type = 1;
     }
     $user->save();
+
     $userList = $this->userInterface->updateUserRole($id);
     return view('admin-panel.user', compact('userList'))
       ->with('no');

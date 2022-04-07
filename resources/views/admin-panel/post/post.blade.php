@@ -34,8 +34,7 @@
                     <form action="{{ route('post.destroy', $post->id)}}" method="post" class="delete-form">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <button type="submit" class="delete show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-
+                    <button type="submit" class="delete show_confirm" data-toggle="tooltip" title='Delete' onclick="return confirm('Are you sure you want detele?')">Delete</button>
               </tr>
               @endforeach
             </tbody>

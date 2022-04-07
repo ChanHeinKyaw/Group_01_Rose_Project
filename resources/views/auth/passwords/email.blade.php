@@ -10,13 +10,17 @@
     @endif
     <form action="{{ route('password.email') }}" method="POST">
       @csrf
+      <div style="text-align: center">
+        <input type="email" placeholder="အီးမေးလ်" name="email" style="width: 80%">
+      </div>
       @error('email')
-        <span style="color: red;">
-          <strong>{{ $message }}</strong><br>
+        <span style="color: hsl(0, 88%, 55%);; padding-left:60px;">
+          {{ $message }}
         </span>
       @enderror
-      <input type="email" placeholder="အီးမေးလ်" name="email" style="width: 80%">
-      <button type="submit" class="submit">Password Reset Link ကို ပေးပို့ပါ။</button>
+      <div style="text-align: center">
+        <button type="submit" class="submit">Password Reset Link ကို ပေးပို့ပါ။</button>
+      </div>
     </form>
   </div>
 @endsection

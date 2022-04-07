@@ -38,7 +38,7 @@
 
     <div class="column column-30">
       <div class="user-section">
-        <a href="{{ url('/admin/profile') }}">
+        <a href="{{ url('/profile') }}">
           @if( Auth::user()->profile)
           <img class="img-profile" src="{{ asset('storage/images/'.Auth::user()->profile ) }}" alt="" class="circle float-left profile-photo" width="50" height="auto">
           @elseif ( Auth::user()->profile == null )

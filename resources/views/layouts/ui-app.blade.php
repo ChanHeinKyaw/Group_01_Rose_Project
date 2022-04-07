@@ -41,7 +41,7 @@
   <header class="top-sec">
     <div class="inner-container">
       <nav class="hdr">
-        <h1>နှင်းဆီ🌹</h1>
+        <a style="color: #000000" href="/"><h1>နှင်းဆီ🌹</h1></a>
         <ul class="menu">
           @if (Auth::user()->type == 1)
           <li class="item"><a href="{{ url('/admin/dashboard') }}">စီမံခန့်ခွဲသူ</a></li>
@@ -53,8 +53,8 @@
           <li class="item has-submenu dropdown">
             <a tabindex="0" class="dropbtn" id="toggle-btn">ကိုယ်ရေးအကျဉ်း</a>
             <div class="dropdown-content">
-              @if (Auth::user()->type == 0 )
               <a href="{{ url('/profile') }}">ကိုယ်ရေးအကျဉ်းကြည့်မည်</a>
+<<<<<<< HEAD
               @elseif (Auth::user()->type == 1)
               <a href="{{ url('/admin/profile') }}">ကိုယ်ရေးအကျဉ်းကြည့်မည်</a>
               @endif
@@ -66,6 +66,8 @@
               @endif
             
 
+=======
+>>>>>>> 21ff165fd38fba0cf88ea839a873418212fc94ae
               <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                document.getElementById('logout-form').submit();">
                 အကောင့်ထွက်မည်
