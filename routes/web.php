@@ -30,7 +30,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     //Ui Panel
-    Route::get('/', [PageController::class, 'index']);
+    Route::get('/', [PageController::class, 'index'])->name('home');
 
     Route::get('/report', [RecordController::class, 'createViewReport'])->name('report');
     Route::post('/report', [RecordController::class, 'createReport'])->name('post#report');
@@ -90,7 +90,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isadmin']], functio
     Route::get('/search', [UserController::class, 'searchUser'])->name('user.search');
     Route::get('/admin/profile', [UserController::class, 'adminProfile']);
     Route::post('/admin/profile', [UserController::class, 'updateAdminProfile'])->name('admin-profile.update');
-    
-    Route::get('/change-password', [UserController::class, 'changeAdminPassword']);
-    Route::post('/change-password', [UserController::class, 'updateAdminPassword'])->name('admin-password.update');
 });

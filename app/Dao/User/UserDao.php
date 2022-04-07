@@ -106,7 +106,6 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 0,
         'address' => $request->address,
         'profile' => $filename,
-        'password' => Hash::make($request->password),
         'updated_at' => now(),
       ]);
     } else {
@@ -120,7 +119,6 @@ class UserDao implements UserDaoInterface
         'type' => $user->type = 0,
         'address' => $request->address,
         'profile' => $user->profile,
-        'password' => Hash::make($request->password),
         'updated_at' => now(),
       ]);
     }
@@ -230,7 +228,7 @@ class UserDao implements UserDaoInterface
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
    
-    return  redirect()->back()->with("success","Password successfully changed!");
+    return  redirect()->route('logout')->with("success","Password successfully changed!");
   }
 
 

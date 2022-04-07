@@ -2,66 +2,66 @@
 @section('title', 'နှင်းဆီ🌹')
 @section('content')
 
-<div class="blank-space"></div>
+  <div class="blank-space"></div>
 
-<div class="blog-sec">
-  <div class="article-div inner-container">
-    <div class="report-hdr">
-      <h2 class="report-h2">
-      စကားဝှက်ပြောင်းမည်
-      </h2>
-    </div>
+  <div class="blog-sec">
+    <div class="article-div inner-container">
+      <div class="report-hdr">
+        <h2 class="report-h2">
+          စကားဝှက်ပြောင်းမည်
+        </h2>
+      </div>
 
-    <div class="inner-form profile-card">
-    @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    @if($errors)
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger">{{ $error }}</div>
-                        @endforeach
-                    @endif
+      <div class="inner-form profile-card">
+        @if (session('error'))
+          <div class="alert alert-danger">
+            {{ session('error') }}
+          </div>
+        @endif
+        @if (session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+        @endif
+        @if ($errors)
+          @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+          @endforeach
+        @endif
 
 
-      <form action="{{ route('user-password.update') }}" method="POST" enctype="multipart/form-data" class="user-changepwd" >
-        @csrf
-       
-        <div>
-            <label for="">Name</label>
-            <input type="text" id="" name="name" value="{{ Auth::user()->name }}" require><br>
+        <form action="{{ route('user-password.update') }}" method="POST" enctype="multipart/form-data"
+          class="user-changepwd">
+          @csrf
+
+          <div>
+            <input type="text" id="name" name="name" placeholder="အမည်ဖြည့်ပါ" value="{{ auth()->user()->name }}" require><br>
           </div>
 
           <div>
-            <label for="current_password">Current Password</label>
-            <input type="password" name="current-password" id="current-password" placeholder="Enter Current Password" require><br>
-            <!-- @if ($errors->has('current-password'))
-            <span class="help-block">
-              <strong>{{ $errors->first('current-password') }}</strong>
-            </span>
-            @endif -->
+            <input type="password" id="current-password" name="current-password" placeholder="လက်ရှိ စကားဝှက်ဖြည့်ပါ"
+              require><br>
           </div>
 
-          <label for="new-password">New Password</label>
-          <input type="password" name="new-password" id="new-password" placeholder="Enter New Password" require><br>
+          <div>
+            <input type="password" name="new-password" id="new-password" placeholder="စကားဝှက် အသစ်ရိုက်ထည့်ပါ"
+              require><br>
+          </div>
 
-          <label for="new-password-confirm">Confirm Password</label>
-          <input id="new-password-confirm" type="password" name="new-password_confirmation"  placeholder="Enter Confrim Password" require><br>
-        
+          <div>
+            <input id="new-password-confirm" type="password" name="new-password_confirmation"
+              placeholder="စကားဝှက် ကို ပြန်လည်စစ်ဆေးပါ" require><br>
+          </div>
 
-          <button type="button"><a href="/admin/dashboard" class="back-btn">Back</a></button>
-          <button type="submit">Update</button>
-      </form>
+          <div style="margin: 20px 0px">
+            <button type="button" class="btn"><a href="/" class="back-btn">နောက်သို့</a></button>
+            <button type="submit" class="btn">အတည်ပြုပါ</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <div class="report-blank-space"></div>
-  <footer id="footer"></footer>
-</div>
+    <div class="report-blank-space"></div>
+    <footer id="footer"></footer>
+  </div>
 @endsection

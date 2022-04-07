@@ -30,7 +30,6 @@
         <input type="phone" name="phone" id="" placeholder="ဖုန်းနံပါတ်" class="profile-input disable" disabled value="{{ $user->phone }}" require>
         <input type="number" min="1" max="120" name="age" id="" placeholder="အသက်" class="profile-input disable" disabled value="{{ $user->age }}" require>
         <input type="text" name="address" id="" placeholder="နေရပ်လိပ်စာ" class="profile-input disable" disabled value="{{ $user->address }}" require>
-        <input type="password" name="password" id="" placeholder="password" class="profile-input disable" disabled  value="{{ $user->password }}" require>
         <select id="gender" required name="gender" class="select-option-gender disable" disabled>
           <option {{ ($user->gender) == 'female' ? 'selected' : '' }} value="female">မ</option>
           <option {{ ($user->gender) == 'male' ? 'selected' : '' }} value="male">ကျား</option>

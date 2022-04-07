@@ -8,6 +8,15 @@
   src: url('../../font/MasterpieceSpringRev.ttf');
 }
 
+
+.alert-danger {
+  color: red;
+}
+
+.alert-success {
+  color: green;
+}
+
 h1 {
   font-family: Spring-Rev;
   font-size: 60px;
@@ -273,7 +282,6 @@ ul.menu li a {
 
 footer {
   color: #ffffff;
-  color: #00000080;
   text-align: center;
   font-size: 30px;
   padding-bottom: 50px;
