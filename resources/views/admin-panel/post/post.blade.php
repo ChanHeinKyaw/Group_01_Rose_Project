@@ -24,9 +24,9 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($posts as $post)
+                @foreach($posts as $index => $post)
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $index + $posts->firstItem() }} </td>
                 <td>{{ $post->title }}</td>
                 <td>{{Str::limit($post->name, 20)}}</td>
                 {{--<td>{{ $post->description }}</td>--}}
