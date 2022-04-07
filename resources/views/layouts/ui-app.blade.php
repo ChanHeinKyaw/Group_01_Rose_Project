@@ -40,7 +40,7 @@
   <header class="top-sec">
     <div class="inner-container">
       <nav class="hdr">
-        <h1>နှင်းဆီ🌹</h1>
+        <a style="color: #000000" href="/"><h1>နှင်းဆီ🌹</h1></a>
         <ul class="menu">
           @if (Auth::user()->type == 1)
           <li class="item"><a href="{{ url('/admin/dashboard') }}">စီမံခန့်ခွဲသူ</a></li>
