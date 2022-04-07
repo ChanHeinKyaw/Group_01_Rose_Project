@@ -24,9 +24,9 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($posts as $post)
+                @foreach($posts as $index => $post)
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $index + $posts->firstItem() }} </td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->description }}</td>
                 <td><img src="{{ asset('storage/post/'.$post->img)}}" width="100px"></td>

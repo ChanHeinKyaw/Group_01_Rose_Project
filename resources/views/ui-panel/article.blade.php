@@ -71,7 +71,7 @@
           },
           success: function(res) {
             $cmt_txt =
-              '<img src="{{ asset('image/user.png') }}" alt=""><strong class="name">{{ auth()->user()->name }}</strong><br><div class="message-box">' +
+              '<img src="{{ asset('image/user.png') }}" alt="" class="img-profile"><strong class="name">{{ auth()->user()->name }}</strong><br><div class="message-box">' +
               cmt_value + '</div><br>';
             $('#comment-box').prepend($cmt_txt);
             $("#comment").val("");
