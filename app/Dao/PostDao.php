@@ -10,15 +10,10 @@ use App\Contracts\Services\PostServiceInterface;
 
 class PostDao implements PostDaoInterface{
 
-    private $model;
-
-    public function __construct(Post $model)
-    {
-        $this->model = $model;
-    }
+    
     public function getAll(){
 
-        return $this->model->latest()->paginate(3);
+        return Post::latest()->paginate(3);
     }
 
     public function create(Request $request){
@@ -34,7 +29,7 @@ class PostDao implements PostDaoInterface{
             $post_img_name = uniqid() . '_' . time() . '.' . $post_img_file->getClientOriginalName();
             Storage::disk('public')->put('post/' . $post_img_name, file_get_contents($post_img_file));
         }
-        return $this->model->create(
+        return Post::create(
             [
                 'title' => $request->title,
                  'description' => $request->description,
@@ -66,6 +61,6 @@ class PostDao implements PostDaoInterface{
         return $post->delete();
     }
     public function seemore($post){
-        return  $this->model->where('id','=',$post->id )->first();
+        return Post::where('id','=',$post->id )->first();
     }
 }

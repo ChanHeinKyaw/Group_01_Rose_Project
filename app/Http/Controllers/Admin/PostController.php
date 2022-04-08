@@ -21,12 +21,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
-        return view('admin-panel.post.post',['posts' => $posts]);
+        return view('admin-panel.post.post',compact('posts'));
     }
     public function show(Post $post){
         $posts = $this->postService->seemore( $post);
-        //$posts =Post::where('id','=',$post->id )->first();
-        return view('admin-panel.post.post-show',['posts' => $posts]);
+        return view('admin-panel.post.post-show',compact('posts'));
     }
      public function create()
     {
@@ -41,7 +40,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin-panel.post.post-edit', compact('post'));
+        return view('admin-panel.post.post-edit',compact('post'));
     }
 
     public function update(Request $request, Post $post)
