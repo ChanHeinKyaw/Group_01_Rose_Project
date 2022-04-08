@@ -64,7 +64,7 @@ class RecordService implements RecordServiceInterface
             "location" => request()->address ?: Auth::user()->address,
         ];
 
-        $defenders = DB::select("select * from users where defender = true");
+        $defenders = $this->recordDao->getUserDefender();
 
         foreach ($defenders as $defender) {
             $email = $defender->email;

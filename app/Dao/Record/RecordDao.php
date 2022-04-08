@@ -47,4 +47,9 @@ class recordDao implements RecordDaoInterface
     {
         return DB::table('records')->join('users', 'records.user_id', 'users.id')->select('users.age as user_age', DB::raw('COUNT(users.age) as count_user_age'))->groupBy('user_age')->having('user_age', '>' , '1')->get();
     }
+
+    public function getUserDefender()
+    {
+        return DB::select("select * from users where defender = true");
+    }
 }
