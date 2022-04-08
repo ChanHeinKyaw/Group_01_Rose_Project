@@ -35,7 +35,7 @@
           @csrf
 
           <div>
-            <input type="text" id="name" name="name" placeholder="အမည်ဖြည့်ပါ" value="{{ auth()->user()->name }}" require><br>
+            <input class="change-name" type="text" id="name" name="name" placeholder="အမည်ဖြည့်ပါ" value="{{ auth()->user()->name }}" require><br>
           </div>
 
           <div>

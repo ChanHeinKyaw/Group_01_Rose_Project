@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Contracts\Services\Contact\ContactServiceInterface;
+
 class ContactUsController extends Controller
 {
     private $contactInterface;
@@ -20,7 +21,7 @@ class ContactUsController extends Controller
     {
         return view('admin-panel.contact');
     }
-  
+
 
     /**
      * To show  contactForm view
@@ -39,18 +40,15 @@ class ContactUsController extends Controller
      */
     public function storeContactForm(Request $request)
     {
-        $contact = $this->contactInterface->storeContactForm($request);
-        //  Send mail to admin
-        \Mail::send('ui-panel.contactMail', array(
-            'name' => $contact['name'],
-            'email' => $contact['email'],
-            'phone' => $contact['phone'],
-            'subject' => $contact['subject'],
-            'message' => $contact['message'],
-        ), function ($message) use ($request) {
-            $message->from($request->email);
-            $message->to('admin@gmail.com', 'Admin')->subject("Contact Mail to Admin");
-        });
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11|numeric',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+        $this->contactInterface->storeContactForm($request);
         return redirect()->back()->with(['success' => 'ဆက်သွယ်ခြင်း အောင်မြင်ပါသည်']);
     }
 

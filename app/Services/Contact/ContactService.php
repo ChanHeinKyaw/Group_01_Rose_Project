@@ -2,10 +2,11 @@
 
 namespace App\Services\Contact;
 
+use App\Dao\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Contracts\Dao\Contact\ContactDaoInterface;
 use App\Contracts\Services\Contact\ContactServiceInterface;
-use App\Dao\Contact;
 
 
 /**
@@ -60,6 +61,18 @@ class ContactService implements ContactServiceInterface
 
   public function storeContactForm(Request $request)
   {
+    $contact = $this->contactDao->storeContactForm($request);
+     //  Send mail to admin
+     \Mail::send('ui-panel.contactMail', array(
+      'name' => $contact['name'],
+      'email' => $contact['email'],
+      'phone' => $contact['phone'],
+      'subject' => $contact['subject'],
+      'message' => $contact['message'],
+  ), function ($message) use ($request) {
+      $message->from($request->email);
+      $message->to('admin@gmail.com', 'Admin')->subject("Contact Mail to Admin");
+  });
     return $this->contactDao->storeContactForm($request);
   }
 
