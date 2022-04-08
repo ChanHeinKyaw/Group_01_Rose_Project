@@ -44,7 +44,7 @@ class ContactDao implements ContactDaoInterface
   */
   public function getContactById($id)
   {
-    $contact = Contact::find($id);
+    $contact = Contact::findorFail($id);
     return $contact;
   }
 
@@ -56,14 +56,6 @@ class ContactDao implements ContactDaoInterface
   */
   public function storeContactForm(Request $request)
   {
-
-    $request->validate([
-      'name' => 'required',
-      'email' => 'required|email',
-      'phone' => 'required|digits:11|numeric',
-      'subject' => 'required',
-      'message' => 'required',
-    ]);
     $contact = new Contact();
     $contact->name = $request['name'];
     $contact->email = $request['email'];
@@ -89,7 +81,6 @@ class ContactDao implements ContactDaoInterface
       ->orWhere('subject', 'LIKE', '%' . $search_text . '%')
       ->orWhere('message', 'LIKE', '%' . $search_text . '%')
       ->get();
-
     return $contactList;
   }
 }

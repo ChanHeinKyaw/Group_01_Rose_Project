@@ -3,9 +3,9 @@
 namespace App\Services\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use App\Contracts\Dao\User\UserDaoInterface;
 use App\Contracts\Services\User\UserServiceInterface;
-use App\Dao\User;
 
 
 /**
@@ -42,6 +42,19 @@ class UserService implements UserServiceInterface
    */
   public function updateUserRole($id)
   {
+    $user = User::findorFail($id);
+    if ($user->type == 1) {
+      $user->type = 0;
+
+      $user->save();
+
+      $userList = $this->userInterface->updateUserRole($id);
+
+      return redirect('/');
+    } elseif ($user->type == 0) {
+      $user->type = 1;
+    }
+    $user->save();
     return $this->userDao->updateUserRole($id);
   }
   /**

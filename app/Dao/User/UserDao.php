@@ -84,8 +84,10 @@ class UserDao implements UserDaoInterface
   {
     $user_id = Auth::user()->id;
     $user = User::find($user_id);
+    
     // to delete old profile
-    if ($user->profile) {
+    $imageName = $request->profile;
+    if ($imageName != null) {
       if (Storage::exists('public/images/' . $user->profile)) {
         Storage::delete('public/images/' . $user->profile);
       }
@@ -103,7 +105,7 @@ class UserDao implements UserDaoInterface
         'age' => $request->age,
         'gender' => $request->gender,
         'defender' => $request->defender,
-        'type' => $user->type = 0,
+        'type' => $user->type,
         'address' => $request->address,
         'profile' => $filename,
         'updated_at' => now(),
@@ -116,14 +118,12 @@ class UserDao implements UserDaoInterface
         'age' => $request->age,
         'gender' => $request->gender,
         'defender' => $request->defender,
-        'type' => $user->type = 0,
+        'type' => $user->type,
         'address' => $request->address,
         'profile' => $user->profile,
         'updated_at' => now(),
       ]);
     }
-
-    $user->save();
     return $user;
   }
 
@@ -148,7 +148,8 @@ class UserDao implements UserDaoInterface
     $user_id = Auth::user()->id;
     $user = User::find($user_id);
     // to delete old profile
-    if ($user->profile) {
+    $imageName = $request->profile;
+    if (  $imageName != null ) {
       if (Storage::exists('public/images/' . $user->profile)) {
         Storage::delete('public/images/' . $user->profile);
       }
@@ -166,7 +167,7 @@ class UserDao implements UserDaoInterface
         'age' => $request->age,
         'gender' => $request->gender,
         'defender' => $request->defender,
-        'type' => $user->type = 1,
+        'type' => $user->type,
         'address' => $request->address,
         'profile' => $filename,
         'password' => $user->password,
@@ -180,14 +181,13 @@ class UserDao implements UserDaoInterface
         'age' => $request->age,
         'gender' => $request->gender,
         'defender' => $request->defender,
-        'type' => $user->type = 1,
+        'type' => $user->type,
         'address' => $request->address,
         'profile' => $user->profile,
         'password' => $user->password,
         'updated_at' => now(),
       ]);
     }
-    // $user->save();
     return $user;
   }
 
@@ -217,11 +217,6 @@ class UserDao implements UserDaoInterface
         // Current password and new password same
         return redirect()->back()->with("error","စကားဝှက် အသစ်နှင့် အဟောင်းတူနေပါသည်။ မတူအောင်ရေးပါ။ ");
     }
-
-    $request->validate([
-        'current-password' => 'required',
-        'new-password' => 'required|string|min:4|confirmed',
-    ]);
 
     //Change Password
     $user = Auth::user();
@@ -261,11 +256,6 @@ class UserDao implements UserDaoInterface
       // Current password and new password same
       return redirect()->back()->with("error","စကားဝှက် အသစ်နှင့် အဟောင်းတူနေပါသည်။ မတူအောင်ရေးပါ။ ");
     }
-
-    $request->validate([
-      'current-password' => 'required',
-      'new-password' => 'required|string|min:4|confirmed',
-    ]);
 
     //Change Password
     $user = Auth::user();

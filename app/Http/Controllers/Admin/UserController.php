@@ -45,19 +45,19 @@ class UserController extends Controller
    */
   public function updateUserRole($id)
   {
-    $user = User::find($id);
-    if ($user->type == 1) {
-      $user->type = 0;
+    // $user = User::find($id);
+    // if ($user->type == 1) {
+    //   $user->type = 0;
 
-      $user->save();
+    //   $user->save();
 
-      $userList = $this->userInterface->updateUserRole($id);
+    //   $userList = $this->userInterface->updateUserRole($id);
 
-      return redirect('/');
-    } elseif ($user->type == 0) {
-      $user->type = 1;
-    }
-    $user->save();
+    //   return redirect('/');
+    // } elseif ($user->type == 0) {
+    //   $user->type = 1;
+    // }
+    // $user->save();
 
     $userList = $this->userInterface->updateUserRole($id);
     return view('admin-panel.user', compact('userList'))
@@ -112,6 +112,10 @@ class UserController extends Controller
 
   public function updateUserPassword(Request $request)
   {
+    $request->validate([
+      'current-password' => 'required',
+      'new-password' => 'required|string|min:4|confirmed',
+    ]);
     $this->userInterface->updateUserPassword($request);
     return  redirect()->back();
   }
@@ -156,8 +160,12 @@ class UserController extends Controller
    * @return object $user 
    */
   public function updateAdminPassword(Request $request)
-  {    
+  {
+    $request->validate([
+      'current-password' => 'required',
+      'new-password' => 'required|string|min:4|confirmed',
+    ]);
     $this->userInterface->updateAdminPassword($request);
     return  redirect()->back();
-  } 
+  }
 }
